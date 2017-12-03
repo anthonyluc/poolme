@@ -1,0 +1,2 @@
+class SkinColor < ApplicationRecord
+end
