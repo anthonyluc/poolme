@@ -1,0 +1,2 @@
+class Corpulence < ApplicationRecord
+end
