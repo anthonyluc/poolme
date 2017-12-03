@@ -7,10 +7,20 @@ gem 'pg'
 gem 'puma'
 gem 'rails', '5.1.4'
 gem 'redis'
+gem "awesome_print"
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
+
+gem 'devise'
+gem 'omniauth-facebook'
+gem "geocoder"
+gem 'cloudinary', '1.1.7'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
+gem 'coffee-rails'
+
 gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
@@ -24,3 +34,5 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+gem "letter_opener", group: :development
