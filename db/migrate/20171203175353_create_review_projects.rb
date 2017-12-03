@@ -1,11 +1,11 @@
-class CreateReviewUsers < ActiveRecord::Migration[5.1]
+class CreateReviewProjects < ActiveRecord::Migration[5.1]
   def change
-    create_table :review_users do |t|
+    create_table :review_projects do |t|
       t.integer :note
       t.text :commentary
       t.integer :alert
       t.boolean :hide
-      t.references :legal_representative, foreign_key: true
+      t.references :project, foreign_key: true
       t.references :user, foreign_key: true
 
       t.timestamps
