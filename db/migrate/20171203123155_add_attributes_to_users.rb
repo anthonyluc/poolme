@@ -8,7 +8,7 @@ class AddAttributesToUsers < ActiveRecord::Migration[5.1]
     add_column :users, :address, :text
     add_column :users, :city, :string
     add_column :users, :country, :string
-    add_column :users, :photo, :string
+    add_column :users, :photos, :string
     add_column :users, :newsletter, :boolean
     add_column :users, :model, :boolean
     add_column :users, :gender, :string
