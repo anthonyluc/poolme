@@ -6,17 +6,17 @@ class CreateModels < ActiveRecord::Migration[5.1]
       t.string :photos
       t.datetime :date_start
       t.datetime :date_end
-      t.integer :income
+      t.integer :income, index: true
       t.integer :selected_user_id
-      t.references :project, foreign_key: true
-      t.string :gender
-      t.string :ethnicity
-      t.string :skin_color
-      t.string :hair_color
-      t.string :haircut
-      t.integer :height
-      t.string :weight
-      t.string :corpulence
+      t.references :project, foreign_key: true, index: true
+      t.string :gender, index: true
+      t.string :ethnicity, index: true
+      t.string :skin_color, index: true
+      t.string :hair_color, index: true
+      t.string :haircut, index: true
+      t.integer :height, index: true
+      t.string :weight, index: true
+      t.string :corpulence, index: true
 
       t.timestamps
     end
