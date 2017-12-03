@@ -8,6 +8,7 @@ class CreateCompanies < ActiveRecord::Migration[5.1]
       t.string :phone_number
       t.string :website
       t.string :photos
+      t.boolean :blocked
 
       t.timestamps
     end

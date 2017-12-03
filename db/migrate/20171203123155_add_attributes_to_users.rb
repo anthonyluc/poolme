@@ -11,6 +11,7 @@ class AddAttributesToUsers < ActiveRecord::Migration[5.1]
     add_column :users, :photos, :string
     add_column :users, :newsletter, :boolean
     add_column :users, :model, :boolean
+    add_column :users, :blocked, :boolean
     add_column :users, :gender, :string
     add_column :users, :ethnicity, :string
     add_column :users, :skin_color, :string
