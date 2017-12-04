@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :user_skills
   has_many :skills, through: :user_skill
   has_many :pools
-  has_many :models, through: :pools
-  has_many :projects, through: :models
+  has_many :roles, through: :pools
+  has_many :projects, through: :roles
   has_many :projects, through: :discussions
 end
