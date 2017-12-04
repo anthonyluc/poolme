@@ -1,2 +1,0 @@
-class SkinColor < ApplicationRecord
-end
