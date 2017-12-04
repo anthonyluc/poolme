@@ -1,2 +1,0 @@
-class Ethnicity < ApplicationRecord
-end
