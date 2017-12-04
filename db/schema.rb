@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171204105302) do
+ActiveRecord::Schema.define(version: 20171204110909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,22 +105,13 @@ ActiveRecord::Schema.define(version: 20171204105302) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-  create_table "model_skills", force: :cascade do |t|
-    t.bigint "skill_id"
-    t.bigint "model_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["model_id"], name: "index_model_skills_on_model_id"
-    t.index ["skill_id"], name: "index_model_skills_on_skill_id"
-  end
-
   create_table "pools", force: :cascade do |t|
-    t.bigint "model_id"
+    t.bigint "role_id"
     t.bigint "user_id"
     t.boolean "closed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["model_id"], name: "index_pools_on_model_id"
+    t.index ["role_id"], name: "index_pools_on_role_id"
     t.index ["user_id"], name: "index_pools_on_user_id"
   end
 
@@ -162,6 +153,15 @@ ActiveRecord::Schema.define(version: 20171204105302) do
     t.datetime "updated_at", null: false
     t.index ["legal_representative_id"], name: "index_review_users_on_legal_representative_id"
     t.index ["user_id"], name: "index_review_users_on_user_id"
+  end
+
+  create_table "role_skills", force: :cascade do |t|
+    t.bigint "skill_id"
+    t.bigint "role_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["role_id"], name: "index_role_skills_on_role_id"
+    t.index ["skill_id"], name: "index_role_skills_on_skill_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -256,15 +256,15 @@ ActiveRecord::Schema.define(version: 20171204105302) do
   add_foreign_key "legal_representatives", "companies"
   add_foreign_key "legal_representatives", "users"
   add_foreign_key "messages", "users"
-  add_foreign_key "model_skills", "roles", column: "model_id"
-  add_foreign_key "model_skills", "skills"
-  add_foreign_key "pools", "roles", column: "model_id"
+  add_foreign_key "pools", "roles"
   add_foreign_key "pools", "users"
   add_foreign_key "projects", "companies"
   add_foreign_key "review_projects", "projects"
   add_foreign_key "review_projects", "users"
   add_foreign_key "review_users", "legal_representatives"
   add_foreign_key "review_users", "users"
+  add_foreign_key "role_skills", "roles"
+  add_foreign_key "role_skills", "skills"
   add_foreign_key "roles", "projects"
   add_foreign_key "user_skills", "skills"
   add_foreign_key "user_skills", "users"
