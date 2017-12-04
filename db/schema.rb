@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171203201556) do
+ActiveRecord::Schema.define(version: 20171204105302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -114,28 +114,6 @@ ActiveRecord::Schema.define(version: 20171203201556) do
     t.index ["skill_id"], name: "index_model_skills_on_skill_id"
   end
 
-  create_table "models", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.string "photos"
-    t.datetime "date_start"
-    t.datetime "date_end"
-    t.integer "income"
-    t.integer "selected_user_id"
-    t.bigint "project_id"
-    t.string "gender"
-    t.string "ethnicity"
-    t.string "skin_color"
-    t.string "hair_color"
-    t.string "haircut"
-    t.integer "height"
-    t.string "weight"
-    t.string "corpulence"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["project_id"], name: "index_models_on_project_id"
-  end
-
   create_table "pools", force: :cascade do |t|
     t.bigint "model_id"
     t.bigint "user_id"
@@ -184,6 +162,28 @@ ActiveRecord::Schema.define(version: 20171203201556) do
     t.datetime "updated_at", null: false
     t.index ["legal_representative_id"], name: "index_review_users_on_legal_representative_id"
     t.index ["user_id"], name: "index_review_users_on_user_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "photos"
+    t.datetime "date_start"
+    t.datetime "date_end"
+    t.integer "income"
+    t.integer "selected_user_id"
+    t.bigint "project_id"
+    t.string "gender"
+    t.string "ethnicity"
+    t.string "skin_color"
+    t.string "hair_color"
+    t.string "haircut"
+    t.integer "height"
+    t.string "weight"
+    t.string "corpulence"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_roles_on_project_id"
   end
 
   create_table "skills", force: :cascade do |t|
@@ -256,16 +256,16 @@ ActiveRecord::Schema.define(version: 20171203201556) do
   add_foreign_key "legal_representatives", "companies"
   add_foreign_key "legal_representatives", "users"
   add_foreign_key "messages", "users"
-  add_foreign_key "model_skills", "models"
+  add_foreign_key "model_skills", "roles", column: "model_id"
   add_foreign_key "model_skills", "skills"
-  add_foreign_key "models", "projects"
-  add_foreign_key "pools", "models"
+  add_foreign_key "pools", "roles", column: "model_id"
   add_foreign_key "pools", "users"
   add_foreign_key "projects", "companies"
   add_foreign_key "review_projects", "projects"
   add_foreign_key "review_projects", "users"
   add_foreign_key "review_users", "legal_representatives"
   add_foreign_key "review_users", "users"
+  add_foreign_key "roles", "projects"
   add_foreign_key "user_skills", "skills"
   add_foreign_key "user_skills", "users"
 end
