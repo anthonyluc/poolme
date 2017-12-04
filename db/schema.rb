@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171204110909) do
+ActiveRecord::Schema.define(version: 20171204133745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,20 +28,6 @@ ActiveRecord::Schema.define(version: 20171204110909) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "corpulences", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "countries", force: :cascade do |t|
-    t.string "name"
-    t.string "iso_code"
-    t.string "prefix_number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "discussions", force: :cascade do |t|
     t.string "name"
     t.string "discussion_id"
@@ -51,36 +37,6 @@ ActiveRecord::Schema.define(version: 20171204110909) do
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_discussions_on_project_id"
     t.index ["user_id"], name: "index_discussions_on_user_id"
-  end
-
-  create_table "ethnicities", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "genders", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "hair_colors", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "haircuts", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "heights", force: :cascade do |t|
-    t.integer "cm"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "legal_representatives", force: :cascade do |t|
@@ -193,12 +149,6 @@ ActiveRecord::Schema.define(version: 20171204110909) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "skin_colors", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "user_skills", force: :cascade do |t|
     t.bigint "skill_id"
     t.bigint "user_id"
@@ -243,12 +193,6 @@ ActiveRecord::Schema.define(version: 20171204110909) do
     t.string "corpulence"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
-  create_table "weights", force: :cascade do |t|
-    t.integer "kg"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "discussions", "projects"
