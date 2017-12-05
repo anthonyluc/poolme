@@ -14,9 +14,23 @@ class CompaniesController < ApplicationController
 
   def create
     @registration_company = RegistrationCompany.new(registration_company_params)
-
+    @company = Company.new
+    @legal_representative = LegalRepresentative.new
+    @company.name = @registration_company.name
+    @company.country = @registration_company.country
+    @legal_representative.grade = @registration_company.grade
+    @legal_representative.phone_number = @registration_company.phone_number
+    current_user.first_name = @registration_company.first_name
+    current_user.last_name = @registration_company.last_name
+    current_user.save
     if @company.save
-      redirect_to company_path(@company)
+      @legal_representative.company = @company
+      @legal_representative.user = current_user
+      if @legal_representative.save
+        redirect_to company_path(@company)
+      else
+        render :new
+      end
     else
       render :new
     end
@@ -46,6 +60,6 @@ class CompaniesController < ApplicationController
   end
 
   def registration_company_params
-    params.require(:registration).permit(:grade, :email, :telephone)
+    params.require(:registration_company).permit(:first_name, :last_name, :grade, :phone_number, :name, :country)
   end
 end

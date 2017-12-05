@@ -14,5 +14,4 @@ class RegistrationCompany
   validates :phone_number, presence: true
   validates :name, presence: true
   validates :country, presence: true
-
 end

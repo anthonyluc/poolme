@@ -5,6 +5,5 @@ class LegalRepresentative < ApplicationRecord
   has_many :review_users
   has_many :users, through: :review_users
 
-  validates :email, presence: true, uniqueness: true
   validates :grade, presence: true
 end
