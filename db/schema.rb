@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20171204133745) do
     t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["discussion_id"], name: "index_discussions_on_discussion_id"
     t.index ["project_id"], name: "index_discussions_on_project_id"
     t.index ["user_id"], name: "index_discussions_on_user_id"
   end
@@ -58,6 +59,7 @@ ActiveRecord::Schema.define(version: 20171204133745) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["discussion_id"], name: "index_messages_on_discussion_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -83,6 +85,10 @@ ActiveRecord::Schema.define(version: 20171204133745) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_projects_on_company_id"
+    t.index ["country"], name: "index_projects_on_country"
+    t.index ["date_end"], name: "index_projects_on_date_end"
+    t.index ["date_start"], name: "index_projects_on_date_start"
+    t.index ["done"], name: "index_projects_on_done"
   end
 
   create_table "review_projects", force: :cascade do |t|
@@ -139,7 +145,16 @@ ActiveRecord::Schema.define(version: 20171204133745) do
     t.string "corpulence"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["corpulence"], name: "index_roles_on_corpulence"
+    t.index ["ethnicity"], name: "index_roles_on_ethnicity"
+    t.index ["gender"], name: "index_roles_on_gender"
+    t.index ["hair_color"], name: "index_roles_on_hair_color"
+    t.index ["haircut"], name: "index_roles_on_haircut"
+    t.index ["height"], name: "index_roles_on_height"
+    t.index ["income"], name: "index_roles_on_income"
     t.index ["project_id"], name: "index_roles_on_project_id"
+    t.index ["skin_color"], name: "index_roles_on_skin_color"
+    t.index ["weight"], name: "index_roles_on_weight"
   end
 
   create_table "skills", force: :cascade do |t|

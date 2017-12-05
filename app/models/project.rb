@@ -7,4 +7,10 @@ class Project < ApplicationRecord
   has_many :users, through: :review_projects
   has_many :users, through: :discussions
   has_many :role_skills, through: :roles
+
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :date_start, presence: true
+  validates :date_end, presence: true
 end
+
