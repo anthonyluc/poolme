@@ -12,4 +12,13 @@ Rails.application.routes.draw do
       resources :pools, except: [:index, :destroy]
     end
   end
+
+  # Company views
+  scope '(:cview)', cview: /cview/ do
+    resources :projects do
+      resources :roles do
+        resources :pools, except: [:index, :destroy]
+      end
+    end
+  end
 end
