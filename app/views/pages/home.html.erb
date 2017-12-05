@@ -2,7 +2,9 @@
 <div id='home'>
   <div class="homepage-hero-module">
       <div class="video-container">
-          <div class="filter"></div>
+          <div class="filter">
+            <h1>Want to get paid for modelling?</h1>
+          </div>
           <video autoplay loop class="">
               <source src="<%= image_path('background.mp4') %>" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
               <source src="<%= image_path('background.webm') %>" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
@@ -12,7 +14,9 @@
           </div>
       </div>
   </div>
-  <h1>Castors</h1>
+  <div class="btn-primary">
+  <%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
+  </div>
   <ul class="bmenu">
     <li><a href="#">Concept</a></li>
     <li><a href="#">Illustrations</a></li>
