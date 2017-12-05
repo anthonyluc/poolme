@@ -1,9 +1,9 @@
 #home {
   .homepage-hero-module {
-      border-right: none;
-      border-left: none;
-      position: relative;
-
+    border-right: none;
+    border-left: none;
+    position: relative;
+    height: 100vh;
   }
   .no-video .video-container video,
   .touch .video-container video {
@@ -37,7 +37,7 @@
   .video-container video {
       position: absolute;
       z-index: 0;
-      bottom: 0;
+      top: 0;
   }
   .video-container video.fillWidth {
       width: 100%;

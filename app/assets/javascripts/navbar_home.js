@@ -1,13 +1,13 @@
 $(document).ready(function() {
   let scroll_start = 0;
-  const startchange = $('#home p');
-  const offset = startchange.offset();
+  const startchange = $('.video-container');
+  const offset = startchange.height();
   $(document).scroll(function() {
     scroll_start = $(this).scrollTop();
-    if(scroll_start > offset.top) {
-        $('.navbar').removeClass('navbar-home');
+    if(scroll_start > offset) {
+        $('.pages.home .navbar-wagon').removeClass('navbar-home');
      } else {
-        $('.navbar').addClass('navbar-home');
+        $('.pages.home .navbar-wagon').addClass('navbar-home');
      }
   });
 });

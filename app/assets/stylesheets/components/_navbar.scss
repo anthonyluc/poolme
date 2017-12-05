@@ -1,14 +1,13 @@
 /* Main navbar */
-.navbar-home {
-    position: fixed;
-    z-index: 1;
-  .navbar-wagon{
-    box-shadow: none;
-    background: none;
-  }
+.navbar-home.navbar-wagon {
+  box-shadow: none;
+  background: none;
 }
 
 .navbar-wagon {
+  top: 0;
+  left: 0;
+  right: 0;
   position: fixed;
   z-index: 1;
   width: 100%;
