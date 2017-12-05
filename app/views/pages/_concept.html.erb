@@ -1,0 +1,36 @@
+<div id="concept-module">
+  <div class="container">
+
+    <h2>Concept</h2>
+    <p>Get hired by multimedia agencies in your town, take part of movies or photo shooting and earn money. It's only 3 steps - here is how it works : </p>
+
+    <div class=concept-flex>
+
+      <div class="col-xs-12 col-sm-4 concept-points">
+        <div class="svg">
+          <%= render 'pages/svg/neutral' %>
+        </div>
+        <p>Create your profile in under 2 minutes</p>
+      </div>
+
+      <div class="col-xs-12 col-sm-4 concept-points">
+        <div class="svg">
+          <div id="wait-pic">
+            <%= render 'pages/svg/wait' %>
+          </div>
+        </div>
+        <p>Go for your next adventures while awaiting to get hired</p>
+      </div>
+
+    <% table = ["cook", "baseballhat", "dany", "detective", "doctor", "einstein", "elvis", "helmetguy", "mustach", "oldman", "swimmer", "waiter"] %>
+
+      <div class="col-xs-12 col-sm-4 concept-points">
+        <div class="svg">
+          <%= render "pages/svg/#{table.sample}" %>
+        </div>
+        <p>Take part of the shooting, have fun and earn min. 30€/hour</p>
+      </div>
+
+    </div>
+  </div>
+</div>
