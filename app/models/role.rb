@@ -9,5 +9,6 @@ class Role < ApplicationRecord
   validates :description, presence: true
   validates :date_start, presence: true
   validates :date_end, presence: true
+  validates :hours, presence: true
   validates :income, presence: true
 end
