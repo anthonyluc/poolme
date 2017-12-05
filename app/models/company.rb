@@ -12,4 +12,6 @@ class Company < ApplicationRecord
   validates :address, presence: true
   validates :email, presence: true, uniqueness: true
   validates :phone_number, presence: true
+
+  has_attachments :photos, maximum: 2
 end

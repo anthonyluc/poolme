@@ -1,0 +1,9 @@
+<%= simple_form_for @registration_company, url: companies_path, method: :post do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :grade %>
+  <%= f.input :phone_number %>
+  <%= f.input :name %>
+  <%= f.input :country %>
+  <%= f.button :submit %>
+<% end %>

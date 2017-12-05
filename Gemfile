@@ -25,6 +25,7 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
+gem 'country_select'
 
 group :development, :test do
   gem 'pry-byebug'
