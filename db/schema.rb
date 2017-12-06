@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205131433) do
+ActiveRecord::Schema.define(version: 20171206092117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,14 +76,14 @@ ActiveRecord::Schema.define(version: 20171205131433) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-  create_table "pools", force: :cascade do |t|
+  create_table "models", force: :cascade do |t|
     t.bigint "role_id"
     t.bigint "user_id"
     t.boolean "closed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["role_id"], name: "index_pools_on_role_id"
-    t.index ["user_id"], name: "index_pools_on_user_id"
+    t.index ["role_id"], name: "index_models_on_role_id"
+    t.index ["user_id"], name: "index_models_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -216,8 +216,8 @@ ActiveRecord::Schema.define(version: 20171205131433) do
   add_foreign_key "legal_representatives", "companies"
   add_foreign_key "legal_representatives", "users"
   add_foreign_key "messages", "users"
-  add_foreign_key "pools", "roles"
-  add_foreign_key "pools", "users"
+  add_foreign_key "models", "roles"
+  add_foreign_key "models", "users"
   add_foreign_key "projects", "companies"
   add_foreign_key "review_projects", "projects"
   add_foreign_key "review_projects", "users"

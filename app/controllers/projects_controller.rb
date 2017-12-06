@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   def index
+    @projects = Project.where()
   end
 
   def create
@@ -18,5 +19,11 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def set_project
+    @project = Project.find(params[:id])
   end
 end
