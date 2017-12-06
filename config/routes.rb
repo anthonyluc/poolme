@@ -4,13 +4,11 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :companies do
-    resources :legal_representatives
+  resources :companies, only: [:show, :new, :create] do
+    resources :legal_representatives, only: [:show]
   end
-  resources :projects do
-    resources :roles do
-      resources :models, except: [:index, :destroy]
-    end
+  resources :projects, only: [:index, :show] do
+    resources :roles, only: [:index, :show]
   end
 
   namespace :cview do
