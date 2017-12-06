@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206152536) do
+ActiveRecord::Schema.define(version: 20171206205915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20171206152536) do
     t.boolean "blocked"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description"
   end
 
   create_table "discussions", force: :cascade do |t|
@@ -52,19 +53,6 @@ ActiveRecord::Schema.define(version: 20171206152536) do
     t.index ["discussion_id"], name: "index_discussions_on_discussion_id"
     t.index ["project_id"], name: "index_discussions_on_project_id"
     t.index ["user_id"], name: "index_discussions_on_user_id"
-  end
-
-  create_table "legal_representatives", force: :cascade do |t|
-    t.string "grade"
-    t.string "phone_number"
-    t.string "email"
-    t.text "description"
-    t.bigint "company_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_legal_representatives_on_company_id"
-    t.index ["user_id"], name: "index_legal_representatives_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -97,6 +85,7 @@ ActiveRecord::Schema.define(version: 20171206152536) do
     t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "city"
     t.index ["company_id"], name: "index_projects_on_company_id"
     t.index ["country"], name: "index_projects_on_country"
     t.index ["date_end"], name: "index_projects_on_date_end"
@@ -122,11 +111,11 @@ ActiveRecord::Schema.define(version: 20171206152536) do
     t.text "commentary"
     t.integer "alert"
     t.boolean "hide"
-    t.bigint "legal_representative_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["legal_representative_id"], name: "index_review_users_on_legal_representative_id"
+    t.integer "company_user_id"
+    t.integer "project_id"
     t.index ["user_id"], name: "index_review_users_on_user_id"
   end
 
@@ -218,25 +207,29 @@ ActiveRecord::Schema.define(version: 20171206152536) do
     t.integer "height"
     t.integer "weight"
     t.string "corpulence"
+    t.string "phone_number_pro"
+    t.string "email_pro"
+    t.string "grade_company"
+    t.text "description_pro"
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "discussions", "projects"
   add_foreign_key "discussions", "users"
-  add_foreign_key "legal_representatives", "companies"
-  add_foreign_key "legal_representatives", "users"
   add_foreign_key "messages", "users"
   add_foreign_key "models", "roles"
   add_foreign_key "models", "users"
   add_foreign_key "projects", "companies"
   add_foreign_key "review_projects", "projects"
   add_foreign_key "review_projects", "users"
-  add_foreign_key "review_users", "legal_representatives"
   add_foreign_key "review_users", "users"
   add_foreign_key "role_skills", "roles"
   add_foreign_key "role_skills", "skills"
   add_foreign_key "roles", "projects"
   add_foreign_key "user_skills", "skills"
   add_foreign_key "user_skills", "users"
+  add_foreign_key "users", "companies"
 end

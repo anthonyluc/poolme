@@ -36,10 +36,10 @@ class Cview::ProjectsController < ApplicationController
   end
 
   def require_legal_representative
-    unless LegalRepresentative.exists?(user_id: current_user.id)
+    unless Company.exists?(id: current_user.company)
       redirect_to projects_path
     end
-    @legal_representative = LegalRepresentative.where(user_id: current_user.id)[0]
+    @legal_representative = current_user
   end
 
   def set_project

@@ -27,7 +27,7 @@
     <%= cl_image_tag @company.photos %>
   </div>
   <h2>The Castors</h2>
-  <%= @company.legal_representatives do |castor| %>
+  <%= @legal_representatives.each do |castor| %>
   <div class="row justify-content-md-center">
     <div class="col col-lg-2">
       <%= castor.first_name %>
@@ -36,10 +36,9 @@
       <%= castor.last_name %>
     </div>
     <div class="col col-lg-2">
-      <%= castor.grade %>
+      <%= castor.grade_company %>
     </div>
       <% end %>
   </div>
 </div>
-<br>
-<%= link_to edit_company_path, 'edit' %>
+

@@ -6,27 +6,18 @@ class CompaniesController < ApplicationController
   end
 
   def show
+    @legal_representatives = User.where(company: @company)
   end
 
   def new
-    @registration_company = RegistrationCompany.new
+    @company = Company.new
   end
 
   def create
-    @registration_company = RegistrationCompany.new(registration_company_params)
-    @company = Company.new
-    @legal_representative = LegalRepresentative.new
-    @company.name = @registration_company.name
-    @company.country = @registration_company.country
-    @legal_representative.grade = @registration_company.grade
-    @legal_representative.phone_number = @registration_company.phone_number
-    current_user.first_name = @registration_company.first_name
-    current_user.last_name = @registration_company.last_name
-    current_user.save
+    @company = Company.new(company_params[:company_attributes])
     if @company.save
-      @legal_representative.company = @company
-      @legal_representative.user = current_user
-      if @legal_representative.save
+      current_user.company = @company
+      if current_user.update_attributes(user_params)
         redirect_to company_path(@company)
       else
         render :new
@@ -37,7 +28,7 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-    @legal_representatives = LegalRepresentative.where(company_id: @company.id)
+    @legal_representatives = User.where(company: @company)
   end
 
   def update
@@ -56,11 +47,11 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
   end
 
-  def company_params
-    params.require(:company).permit(:name, :address, :country, :email, :phone_number, :website, photos: [])
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :grade_company, :phone_number_pro, :email_pro, :description_pro)
   end
 
-  def registration_company_params
-    params.require(:registration_company).permit(:first_name, :last_name, :grade, :phone_number, :name, :country, photos: [])
+  def company_params
+    params.require(:user).permit(company_attributes: [:name, :country, photos: []])
   end
 end
