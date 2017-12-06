@@ -1,18 +1,22 @@
 <% content_for(:navbar_class, "navbar-home") %>
 <div id='home'>
-  <div class="homepage-hero-module">
-      <div class="video-container">
-          <div class="filter"></div>
-          <video autoplay loop class="">
-              <source src="<%= image_path('background.mp4') %>" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
-              <source src="<%= image_path('background.webm') %>" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
-          </video>
-          <div class="poster hidden">
-              <img src="<%= image_tag('background.jpg') %>" alt="">
+    <div class="homepage-hero-module">
+        <div class="video-container">
+            <div class="filter">
+              <h1>Want to get paid for modelling?</h1>
+            </div>
+            <video autoplay loop class="">
+                <source src="<%= image_path('background.mp4') %>" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+                <source src="<%= image_path('background.webm') %>" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+            </video>
+            <div class="poster hidden">
+                <img src="<%= image_tag('background.jpg') %>" alt="">
           </div>
       </div>
-  </div>
-  <h1>Castors</h1>
+    </div>
+<div class="btn-primary">
+  <a><%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %></a>
+</div>
   <ul class="bmenu">
     <li><a href="#">Concept</a></li>
     <li><a href="#">Illustrations</a></li>
@@ -30,4 +34,5 @@ Constituendi autem sunt qui sint in amicitia fines et quasi termini diligendi. D
 
 Nihil morati post haec militares avidi saepe turbarum adorti sunt Montium primum, qui divertebat in proximo, levi corpore senem atque morbosum, et hirsutis resticulis cruribus eius innexis divaricaturn sine spiramento ullo ad usque praetorium traxere praefecti.
 </br>
+</div>
 </div>
