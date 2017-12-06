@@ -9,15 +9,14 @@ Rails.application.routes.draw do
   end
   resources :projects do
     resources :roles do
-      resources :pools, except: [:index, :destroy]
+      resources :models, except: [:index, :destroy]
     end
   end
 
-  # Company views
-  scope '(:cview)', cview: /cview/ do
+  namespace :cview do
     resources :projects do
       resources :roles do
-        resources :pools, except: [:index, :destroy]
+        resources :models, except: [:index, :destroy]
       end
     end
   end
