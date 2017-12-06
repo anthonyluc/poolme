@@ -2,6 +2,9 @@ class RolesController < ApplicationController
   def index
   end
 
+  def show
+  end
+
   def new
   end
 
@@ -11,8 +14,7 @@ class RolesController < ApplicationController
   def edit
   end
 
-  def show
-  end
+
 
   def update
   end
