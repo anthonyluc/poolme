@@ -37,6 +37,7 @@ class CompaniesController < ApplicationController
   end
 
   def edit
+    @legal_representatives = LegalRepresentative.where(company_id: @company.id)
   end
 
   def update

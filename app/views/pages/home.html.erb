@@ -7,7 +7,6 @@
             </div>
             <video autoplay loop class="">
                 <source src="<%= image_path('background.mp4') %>" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
-                <source src="<%= image_path('background.webm') %>" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
             </video>
             <div class="poster hidden">
                 <img src="<%= image_tag('background.jpg') %>" alt="">
@@ -15,7 +14,7 @@
       </div>
     </div>
 <div class="btn-primary">
-  <a><%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %></a>
+  <a><%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path %></a>
 </div>
   <ul class="bmenu">
     <li><a href="#" class="olivier">Concept</a></li>

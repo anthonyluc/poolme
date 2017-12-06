@@ -1,2 +1,18 @@
-<h1>Companies#edit</h1>
-<p>Find me in app/views/companies/edit.html.erb</p>
+  <br>
+<%= simple_form_for @company, method: :patch do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :country %>
+  <%= f.input :phone_number %>
+  <br>
+  <%= f.button :submit %>
+<% end %>
+  <br></br>
+<%= simple_form_for [@company, @legal_representatives], method: :patch do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :grade %>
+  <br>
+  <%= f.button :submit %>
+<% end %>
+

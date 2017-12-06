@@ -1,0 +1,8 @@
+<%= simple_form_for '@préciser', url: companies_path, method: :post do |f| %>
+  <%= f.input :grade %>
+  <%= f.input :phone_number %>
+  <%= f.input :email %>
+  <%= f.input :description %>
+  <br>
+  <%= f.button :submit %>
+<% end %>
