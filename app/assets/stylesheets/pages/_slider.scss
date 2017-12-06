@@ -8,3 +8,8 @@
     left: 0;
     min-height: 600px;
 }
+
+.filter {
+  -webkit-filter: contrast(108%) brightness(108%) sepia(8%);
+  filter: contrast(108%) brightness(108%) sepia(8%);
+}
