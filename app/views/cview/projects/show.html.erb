@@ -1,10 +1,10 @@
 <h2>Projects#show</h2>
 <%= @project.name %>
-<%= @project.name %>
+<%= @project.description %>
 <%= @project.date_start %>
 <%= @project.date_end %>
 <%= @project.country %>
-<%= @project.name %>
+<%= @project.city %>
 
 <% @project.photos.each do |photo| %>
   <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
