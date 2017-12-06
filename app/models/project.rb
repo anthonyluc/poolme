@@ -12,5 +12,7 @@ class Project < ApplicationRecord
   validates :description, presence: true
   validates :date_start, presence: true
   validates :date_end, presence: true
+
+  has_attachments :photos, maximum: 10
 end
 

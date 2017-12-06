@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206092117) do
+ActiveRecord::Schema.define(version: 20171206142117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(version: 20171206092117) do
     t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["discussion_id"], name: "index_discussions_on_discussion_id"
     t.index ["project_id"], name: "index_discussions_on_project_id"
     t.index ["user_id"], name: "index_discussions_on_user_id"
   end
@@ -74,7 +73,6 @@ ActiveRecord::Schema.define(version: 20171206092117) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["discussion_id"], name: "index_messages_on_discussion_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -94,16 +92,11 @@ ActiveRecord::Schema.define(version: 20171206092117) do
     t.datetime "date_start"
     t.datetime "date_end"
     t.string "country"
-    t.string "photos"
     t.boolean "done"
     t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_projects_on_company_id"
-    t.index ["country"], name: "index_projects_on_country"
-    t.index ["date_end"], name: "index_projects_on_date_end"
-    t.index ["date_start"], name: "index_projects_on_date_start"
-    t.index ["done"], name: "index_projects_on_done"
   end
 
   create_table "review_projects", force: :cascade do |t|
@@ -161,16 +154,7 @@ ActiveRecord::Schema.define(version: 20171206092117) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "hours"
-    t.index ["corpulence"], name: "index_roles_on_corpulence"
-    t.index ["ethnicity"], name: "index_roles_on_ethnicity"
-    t.index ["gender"], name: "index_roles_on_gender"
-    t.index ["hair_color"], name: "index_roles_on_hair_color"
-    t.index ["haircut"], name: "index_roles_on_haircut"
-    t.index ["height"], name: "index_roles_on_height"
-    t.index ["income"], name: "index_roles_on_income"
     t.index ["project_id"], name: "index_roles_on_project_id"
-    t.index ["skin_color"], name: "index_roles_on_skin_color"
-    t.index ["weight"], name: "index_roles_on_weight"
   end
 
   create_table "skills", force: :cascade do |t|
