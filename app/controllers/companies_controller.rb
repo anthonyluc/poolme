@@ -61,6 +61,6 @@ class CompaniesController < ApplicationController
   end
 
   def registration_company_params
-    params.require(:registration_company).permit(:first_name, :last_name, :grade, :phone_number, :name, :country)
+    params.require(:registration_company).permit(:first_name, :last_name, :grade, :phone_number, :name, :country, photos: [])
   end
 end
