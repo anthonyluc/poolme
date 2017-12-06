@@ -1,0 +1,82 @@
+#cie {
+  .container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 20px;
+    padding: 0px;
+    padding-bottom: 50px;
+    background-image: asset-url('cardbackground.jpg');
+    background-size: cover;
+    box-shadow: 1px 1px 1px #595959;
+    border: 0.1px solid #595959;
+  }
+
+  .photos {
+    padding: 10px 10px 10px 10px;
+    background-color: white;
+    opacity: 0.9;
+    z-index: 1;
+    border-radius: 0px 0px 50px 0px;
+    border: 0.5px solid #595959;
+  }
+
+  .photos img {
+    height: 200px;
+    widows: 150px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    padding: 1px 1px 1px 1px;
+    background: white;
+  }
+
+  h3 {
+    font-family: Raleway;
+    color: #232323;
+    margin-bottom: 20px;
+    margin-top: 0px;
+  }
+
+  b {
+    font-family: Raleway;
+    color: white;
+    font-size: 20px;
+    padding-top: 120px;
+  }
+
+  a {
+    font-family: Raleway;
+    color: white;
+    text-decoration: none;
+  }
+
+  c {
+    color: #232323;
+  }
+
+  d {
+    font-family: Raleway;
+    color: #232323;
+  }
+
+  .btn-edit {
+  flex: 1 1 auto;
+  width: 100%;
+  padding: 10px 30px;
+  margin-bottom: 10px;
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  background-color: #B9DE50;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 50px;
+  font-weight: normal;
+ }
+
+  .btn-edit:hover {
+  background-position: right center; /* change the direction of the change here */
+  text-decoration: none;
+  background-color: #A8CD40;
+}
+}

@@ -1,45 +1,45 @@
+ <div id="cie">
   <br>
-<h2>The Dam</h2>
-<div class="container">
-  <div class="row justify-content-md-center">
-    <div class="col col-lg-2">
-      <%= @company.name %>
-    </div>
-    <div class="col-12 col-md-auto">
-      <%= @company.address %>
-    </div>
-    <div class="col col-lg-2">
-      <%= @company.country %>
+  <center><h2>The Dam</h2></center>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+      <div class="photos">
+        <%= image_tag "model.jpg" %>
+        <h3><%= @company.name %></h3>
+        <c><%= @company.address %>
+        <%= @company.country %></c>
+        <br></br>
+        <d>Phone:</d> <c> <%= @company.phone_number %></c>
+      </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+          <br></br>
+        <b>Contact:</b><a> <%= @company.email %></a>
+        <br><br></br>
+        <b>Website:</b><a> <%= @company.website %></a>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <br></br>
+        <%= link_to "Modify", edit_company_path, class: "btn-edit" %>
+      </div>
     </div>
   </div>
-  <div class="row justify-content-md-center">
-    <div class="col col-lg-2">
-      <%= @company.email %>
+    <center><h2>The Castors</h2></center>
+    <%= @company.legal_representatives do |castor| %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <%= castor.first_name %>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <%= castor.last_name %>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <%= castor.grade %>
+      </div>
+        <% end %>
     </div>
-    <div class="col-12 col-md-auto">
-      <%= @company.phone_number %>
-    </div>
-    <div class="col col-lg-2">
-      <%= @company.website %>
-    </div>
-  </div>
-  <div class="photos">
-    <%= cl_image_tag @company.photos %>
-  </div>
-  <h2>The Castors</h2>
-  <%= @company.legal_representatives do |castor| %>
-  <div class="row justify-content-md-center">
-    <div class="col col-lg-2">
-      <%= castor.first_name %>
-    </div>
-    <div class="col-12 col-md-auto">
-      <%= castor.last_name %>
-    </div>
-    <div class="col col-lg-2">
-      <%= castor.grade %>
-    </div>
-      <% end %>
   </div>
 </div>
-<br>
-<%= link_to edit_company_path, 'edit' %>
+</div>
