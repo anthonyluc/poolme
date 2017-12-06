@@ -1,10 +1,9 @@
-<h1>Projects#index</h1>
-<p>Find me in app/views/projects/index.html.erb</p>
+<h2>Projects#index</h2>
 
 <% @projects.each do |p| %>
-  <%= p.name %><br />
+  <%= link_to p.name, cview_project_path(p) %><br />
   <%= p.description %><br />
   <%= p.date_start %><br />
   <%= p.date_end %><br />
-  <%= p.country %>
+  <%= p.country %><br /><br />
 <% end %>
