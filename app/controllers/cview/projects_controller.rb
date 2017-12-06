@@ -1,6 +1,10 @@
 class Cview::ProjectsController < ApplicationController
   before_action :require_legal_representative
 
+  def index
+    @projects = Project.where(company_id: @legal_representative.company_id)
+  end
+
   def new
     @project = Project.new
   end
