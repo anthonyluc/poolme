@@ -5,8 +5,8 @@ class Company < ApplicationRecord
   has_many :review_users, through: :legal_representatives
   has_many :review_projects, through: :projects, dependent: :destroy
   has_many :discussions, through: :projects
-  has_many :models, through: :projects
-  has_many :pools, through: :models
+  has_many :roles, through: :projects
+  has_many :models, through: :roles
 
   validates :name, uniqueness: true, presence: true
 

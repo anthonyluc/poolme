@@ -1,4 +1,4 @@
-class PoolsController < ApplicationController
+class ModelsController < ApplicationController
   def create
   end
 
