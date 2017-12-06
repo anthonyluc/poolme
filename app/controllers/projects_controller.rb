@@ -4,9 +4,6 @@ class ProjectsController < ApplicationController
     @projects = Project.where()
   end
 
-  def show
-  end
-
   private
 
   def set_project
