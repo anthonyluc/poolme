@@ -6,7 +6,11 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  z-index: 3;
   h2 {
     padding: 0px;
+  }
+  .container {
+    margin-top: 0px;
   }
 }
