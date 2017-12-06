@@ -1,11 +1,13 @@
-<h2>Projects#new</h2>
+<div class="container">
+  <h2>New project</h2>
 
-<%= simple_form_for @project, url: cview_projects_path, method: :post do |p| %>
-  <%= p.input :name %>
-  <%= p.input :description %>
-  <%= p.input :date_start %>
-  <%= p.input :date_end %>
-  <%= p.input :country %>
-  <%= p.input :photos, as: :attachinary %>
-  <%= p.button :submit %>
-<% end %>
+  <%= simple_form_for @project, url: cview_projects_path, method: :post do |p| %>
+    <%= p.input :name %>
+    <%= p.input :description %>
+    <%= p.input :date_start %>
+    <%= p.input :date_end %>
+    <%= p.input :country %>
+    <%= p.input :photos, as: :attachinary %>
+    <%= p.button :submit %>
+  <% end %>
+</div>
