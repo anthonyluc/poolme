@@ -40,15 +40,21 @@
     <%= @project.description %>
   </div>
 
+  <h4> Roles : </h4>
   <div class="roles-needed">
-    <h4> Roles : </h4>
-    <img src='https://kitt.lewagon.com/placeholder/users/alex-felix' class="avatar-large"/>
-    <img src='https://kitt.lewagon.com/placeholder/users/alex-felix' class="avatar-large"/>
-    <img src='https://kitt.lewagon.com/placeholder/users/alex-felix' class="avatar-large"/>
     <% @roles.each do |r| %>
-      <%= link_to r.name, cview_project_role_path(project_id: @project.id, id: r.id) %>
+      <div class="project-role">
+        <img src='https://kitt.lewagon.com/placeholder/users/alex-felix' class="avatar-large"/> <br>
+        <%= link_to r.name, cview_project_role_path(project_id: @project.id, id: r.id) %>
+      </div>
     <% end %>
-    <%= link_to 'add a role', new_cview_project_role_path(@project) %>
+    <a href= <% link_to 'add a role', new_cview_project_role_path(@project) %> >
+      <div class="project-role">
+        <div class="avatar-large green">
+          <%= render 'add' %>
+        </div>
+      </div>
+    </a>
   </div>
 
   <div id="map"></div>

@@ -1,4 +1,6 @@
-<h2>New role</h2>
-<%= simple_form_for @role, url: cview_project_roles_path do |f| %>
-<%= render 'cview/roles/form', f: f %>
-<% end %>
+<div class="container">
+  <h2>New role</h2>
+  <%= simple_form_for @role, url: cview_project_roles_path do |f| %>
+  <%= render 'cview/roles/form', f: f %>
+  <% end %>
+</div>

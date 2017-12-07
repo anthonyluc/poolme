@@ -1,4 +1,6 @@
 class RolesController < ApplicationController
+  before_action :set_role, only: :show
+
   def index
   end
 
