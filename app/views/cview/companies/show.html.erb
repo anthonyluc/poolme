@@ -1,1 +1,48 @@
-<%= render file: 'companies/show' %>
+<div id="cie">
+  <center><h2>The Dam</h2></center>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+      <div class="photos">
+        <%= cl_image_tag @company.photos[0].path %>
+        <h3><%= @company.name %></h3>
+        <c><%= @company.address %>
+        <%= @company.country %></c>
+        <br></br>
+        <c>Phone: <%= @company.phone_number %></c>
+      </div>
+      </div>
+      <div class="backtext">
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+          <br></br>
+        <b>Contact:</b><a> <%= @company.email %></a>
+        <br><br></br>
+        <b>Website:</b><a> <%= @company.website %></a>
+        <br><br></br>
+        <b>Description:</b><a> <%= @company.description %></a>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <br></br>
+        <%= link_to "Modify", edit_cview_company_path, class: "btn-edit" %>
+      </div>
+    </div>
+    </div>
+    <center><h4>The Castor(s)</h4></center>
+    <% @legal_representatives.each do |castor| %>
+    <div class="castors">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+          <%= castor.first_name %>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+          <%= castor.last_name %>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+          <%= castor.grade_company %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

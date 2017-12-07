@@ -6,7 +6,7 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @legal_representatives = User.where(company_id: @company.id)
+    @legal_representatives = User.where(company_id: @company.id)[0]
   end
 
   def new
@@ -28,12 +28,12 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-    @legal_representatives = User.where(company: @company)
+    @legal_representatives = User.where(company_id: @company.id)[0]
   end
 
   def update
     @company.update_attributes(company_params)
-    redirect_to company_path(@company)
+    redirect_to cview_company_path(@company)
   end
 
   def destroy
