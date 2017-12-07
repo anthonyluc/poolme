@@ -36,7 +36,7 @@ class Cview::ProjectsController < ApplicationController
   end
 
   def require_legal_representative
-    unless Company.exists?(id: current_user.company)
+    unless Company.exists?(id: current_user.company_id
       redirect_to projects_path
     end
     @legal_representative = current_user
