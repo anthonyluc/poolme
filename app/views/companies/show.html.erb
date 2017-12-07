@@ -1,5 +1,5 @@
  <div id="cie">
-  <br>
+  <br></br>
   <center><h2>The Dam</h2></center>
   <div class="container">
     <div class="row">
@@ -13,6 +13,7 @@
         <d>Phone:</d> <c> <%= @company.phone_number %></c>
       </div>
       </div>
+      <div class="backtext">
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
           <br></br>
         <b>Contact:</b><a> <%= @company.email %></a>
@@ -24,10 +25,10 @@
         <%= link_to "Modify", edit_company_path, class: "btn-edit" %>
       </div>
     </div>
-  </div>
+    </div>
     <center><h2>The Castors</h2></center>
     <%= @company.legal_representatives do |castor| %>
-  <div class="container">
+  <div class="castors">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
         <%= castor.first_name %>
