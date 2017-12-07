@@ -1,25 +1,17 @@
-<%= simple_form_for '@préciser', url: companies_path, method: :post do |f| %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :phone_number %>
-  <%= f.input :email %>
-  <%= f.input :description %>
-  <%= f.input :username %>
-  <%= f.input :password %>
-  <%= f.input :address %>
-  <%= f.input :city %>
-  <%= f.input :country %>
-  <%= f.input :photos %>
-  <%= f.input :newsletter %>
-  <%= f.input :model %>
-  <%= f.input :gender %>
-  <%= f.input :ethnicity %>
-  <%= f.input :skin_color %>
-  <%= f.input :hair_color %>
-  <%= f.input :haircut %>
-  <%= f.input :height %>
-  <%= f.input :weight %>
-  <%= f.input :corpulence %>
-  <br>
-  <%= f.button :submit %>
-<% end %>
+<%= f.input :name %>
+<%= f.input :description %>
+
+<%= f.input :date_start %>
+<%= f.input :date_end %>
+<%= f.input :income %>
+<%= f.input :hours %>
+<%= f.input :gender %>
+<%= f.input :ethnicity %>
+<%= f.input :skin_color %>
+<%= f.input :hair_color %>
+<%= f.input :haircut %>
+<%= f.input :height %>
+<%= f.input :weight %>
+<%= f.input :corpulence %>
+<br>
+<%= f.button :submit %>

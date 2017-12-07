@@ -3,7 +3,7 @@ class Cview::CompaniesController < ApplicationController
   before_action :require_legal_representative
 
   def show
-    @legal_representatives = User.where(company: @company)
+    @legal_representatives = User.where(company_id: @company.id)
   end
 
   def update
