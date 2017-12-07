@@ -12,6 +12,7 @@
                   <%= cl_image_tag m.photos[0].path %>
               <% end %>
               <h3><%= m.username %></h3>
+              <%= link_to "o",edit_cview_project_role_model_path(project_id: @project.id, role_id: @role.id, id: m.id) %>
             <% end %>
           </div>
         <% end %>

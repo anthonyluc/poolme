@@ -48,13 +48,13 @@
         <%= link_to r.name, cview_project_role_path(project_id: @project.id, id: r.id) %>
       </div>
     <% end %>
-    <a href= <% link_to 'add a role', new_cview_project_role_path(@project) %> >
+    <%= link_to  new_cview_project_role_path(@project) do %>
       <div class="project-role">
         <div class="avatar-large green">
           <%= render 'add' %>
         </div>
       </div>
-    </a>
+    <% end %>
   </div>
 
   <div id="map"></div>
