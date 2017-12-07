@@ -7,6 +7,7 @@ class Cview::ProjectsController < ApplicationController
   end
 
   def show
+    @roles = Role.where(project: @project)
   end
 
   def new

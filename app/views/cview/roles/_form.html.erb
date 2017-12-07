@@ -1,4 +1,5 @@
-<%= simple_form_for '@préciser', url: companies_path, method: :post do |f| %>
+<<<<<<< HEAD
+<%= simple_form_for @role, url: cview_project_roles_path do |f| %>
   <%= f.input :first_name %>
   <%= f.input :last_name %>
   <%= f.input :phone_number %>
@@ -23,3 +24,22 @@
   <br>
   <%= f.button :submit %>
 <% end %>
+=======
+<%= f.input :name %>
+<%= f.input :description %>
+
+<%= f.input :date_start %>
+<%= f.input :date_end %>
+<%= f.input :income %>
+<%= f.input :hours %>
+<%= f.input :gender %>
+<%= f.input :ethnicity %>
+<%= f.input :skin_color %>
+<%= f.input :hair_color %>
+<%= f.input :haircut %>
+<%= f.input :height %>
+<%= f.input :weight %>
+<%= f.input :corpulence %>
+<br>
+<%= f.button :submit %>
+>>>>>>> f4c49aa97891e223a8753fcbd66ddff6fb540875
