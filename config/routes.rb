@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :companies, only: [:show, :new, :create] do
     resources :users, only: [:show]
   end
+
   resources :projects, only: [:index, :show] do
     resources :roles, only: [:index, :show]
   end
