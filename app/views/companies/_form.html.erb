@@ -4,7 +4,7 @@
   <%= u.input :grade_company %>
   <%= u.input :phone_number_pro %>
   <%= u.input :email_pro, label: 'Email pro' %>
-  <%= u.simple_fields_for :company, @company do |c| %>
+  <%= u.simple_fields_for :companies, @company do |c| %>
     <%= c.input :name, label: 'Society' %>
     <%= c.input :country %>
     <%= c.input :photos, as: :attachinary %>
