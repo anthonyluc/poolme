@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207103723) do
+ActiveRecord::Schema.define(version: 20171207154734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -144,7 +144,7 @@ ActiveRecord::Schema.define(version: 20171207103723) do
     t.string "hair_color"
     t.string "haircut"
     t.integer "height"
-    t.string "weight"
+    t.integer "weight"
     t.string "corpulence"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
