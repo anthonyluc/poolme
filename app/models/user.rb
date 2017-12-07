@@ -17,4 +17,5 @@ class User < ApplicationRecord
 
   validates :username, uniqueness: true, presence: true
   accepts_nested_attributes_for :companies
+  has_attachments :photos, maximum: 10
 end
