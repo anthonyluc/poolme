@@ -1,0 +1,5 @@
+<h2>Edit profile</h2>
+
+<%= simple_form_for @profile, url: profile_path(@profile) do |f| %>
+  <%= render 'profiles/form', f: f  %>
+<% end %>

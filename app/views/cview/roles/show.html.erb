@@ -15,3 +15,7 @@
 <%= @role.weight %><br />
 <%= @role.corpulence %><br />
 <%= render file: 'cview/models/index' %>
+
+<%= @models.each do |m| %>
+  <%= m.username %>
+<% end %>
