@@ -6,7 +6,7 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @legal_representatives = User.where(company: @company)
+    @legal_representatives = User.where(company_id: @company.id)
   end
 
   def new
@@ -14,9 +14,9 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.new(company_params[:company_attributes])
+    @company = Company.new(company_params[:companies_attributes]['0'])
     if @company.save
-      current_user.company = @company
+      current_user.company_id = @company.id
       if current_user.update_attributes(user_params)
         redirect_to company_path(@company)
       else
@@ -52,6 +52,6 @@ class CompaniesController < ApplicationController
   end
 
   def company_params
-    params.require(:user).permit(company_attributes: [:name, :country, photos: []])
+    params.require(:user).permit(companies_attributes: [:name, :country, photos: []])
   end
 end

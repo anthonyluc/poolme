@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  belongs_to :company
+  has_many :companies
   has_many :messages
   has_many :discussions
   has_many :review_users
@@ -16,5 +16,5 @@ class User < ApplicationRecord
   has_many :projects, through: :discussions
 
   validates :username, uniqueness: true, presence: true
-  accepts_nested_attributes_for :company
+  accepts_nested_attributes_for :companies
 end
