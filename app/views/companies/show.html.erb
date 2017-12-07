@@ -4,7 +4,11 @@
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
       <div class="photos">
+        <% if @company.photos[0] == nil %>
+        <%= image_tag 'defaultcie.jpg' %>
+        <% else %>
         <%= cl_image_tag @company.photos[0].path %>
+        <% end %>
         <h3><%= @company.name %></h3>
         <c><%= @company.address %>
         <%= @company.country %></c>

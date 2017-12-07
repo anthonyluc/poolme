@@ -7,7 +7,7 @@
   <%= u.simple_fields_for :companies, @company do |c| %>
     <%= c.input :name, label: 'Society' %>
     <%= c.input :country %>
-    <%= c.input :photos, as: :attachinary, label: 'Maximum 5, logo first' %>
+    <%= c.input :photos, as: :attachinary %>
   <% end %>
   <br>
   <%= u.button :submit %>

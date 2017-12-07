@@ -6,7 +6,7 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @legal_representatives = User.where(company_id: @company.id)[0]
+    @legal_representatives = User.where(company_id: @company.id)
   end
 
   def new
@@ -28,7 +28,7 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-    @legal_representatives = User.where(company_id: @company.id)[0]
+    @legal_representatives = User.where(company_id: @company.id)
   end
 
   def update
