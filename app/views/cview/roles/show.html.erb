@@ -1,3 +1,8 @@
+
+<div class="role-view">
+
+</div>
+
 <h1>Roles#show</h1>
 <%= @role.name %><br />
 <%= @role.description %><br />
@@ -15,3 +20,7 @@
 <%= @role.weight %><br />
 <%= @role.corpulence %><br />
 <%= render file: 'cview/models/index' %>
+
+<%= @models.each do |m| %>
+  <%= m.username %>
+<% end %>

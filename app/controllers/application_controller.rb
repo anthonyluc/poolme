@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  # include ActionView::Helpers::UrlHelper
   protect_from_forgery with: :exception
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -11,8 +10,4 @@ class ApplicationController < ActionController::Base
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:username])
   end
-
-  # def cview_path
-  #   current_page?('/cview/*') ? true : false
-  # end
 end
