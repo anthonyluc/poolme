@@ -39,7 +39,6 @@
   }
   .video-container video {
       position: absolute;
-      z-index: 0;
       top: 0;
   }
   .video-container video.fillWidth {
@@ -67,6 +66,7 @@
   }
 
   .bmenu{
+    z-index: 1;
     padding: 250px 0px;
     margin: 0 auto;
     position: relative;
