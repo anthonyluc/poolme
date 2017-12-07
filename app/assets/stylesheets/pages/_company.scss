@@ -17,8 +17,7 @@
   }
 
   .photos img {
-    height: 200px;
-    widows: 150px;
+    width: 50%;
     border-radius: 50px;
     margin-bottom: 20px;
     padding: 1px 1px 1px 1px;
@@ -93,6 +92,11 @@
     background-color: white;
     opacity: 0,9;
     z-index: 11;
+
+    img {
+      width: 25%;
+      padding: 20px;
+    }
   }
 
   .castors {
