@@ -4,13 +4,13 @@
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
         <div class="card">
-          <% @models.user.each do |m| %>
+          <% @models.each do |m| %>
             <% if m.photos[0] == nil %>
                 <%= image_tag 'defaultcie.jpg' %>
             <% else %>
                 <%= cl_image_tag m.photos[0].path %>
             <% end %>
-            <h3><%= m.user.first_name %></h3>
+            <h3><%= m.first_name %></h3>
           <% end %>
         </div>
       </div>

@@ -1,23 +1,57 @@
-<h2>Profile</h2>
-<%= @profile.first_name %><br />
-<%= @profile.last_name %><br />
-<%= @profile.phone_number %><br />
-<%= @profile.email %><br />
-<%= @profile.description %><br />
-<%= @profile.address %><br />
-<%= @profile.city %><br />
-<%= @profile.country %><br />
-<%= @profile.newsletter %><br />
-<%= @profile.model %><br />
-<%= @profile.gender %><br />
-<%= @profile.ethnicity %><br />
-<%= @profile.skin_color %><br />
-<%= @profile.hair_color %><br />
-<%= @profile.haircut %><br />
-<%= @profile.height %><br />
-<%= @profile.weight %><br />
-<%= @profile.corpulence %><br />
-<%= @profile.phone_number_pro %><br />
-<%= @profile.email_pro %><br />
-<%= @profile.grade_company %><br />
-<%= @profile.description_pro %><br />
+<div id="profil">
+  <center><h2>Profile</h2></center>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+      <div class="photos">
+        <% if @profile.photos[0] == nil %>
+          <%= image_tag 'defaultcie.jpg', width: 300, height: 200, crop: :fill %>
+        <% else %>
+          <%= cl_image_tag @profile.photos[0].path, width: 300, height: 200, crop: :fill %>
+        <% end %>
+        <h3><%= @profile.first_name %>, <%= @profile.gender %></h3>
+        <c><%= @profile.address %>
+        <%= @profile.city %> <%= @profile.country %></c>
+        <br></br>
+        <c>Phone: <%= @profile.phone_number %></c>
+      </div>
+      </div>
+      <div class="backtext">
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+          <br></br>
+        <b>Contact:</b><a> <%= @profile.email %></a>
+        <br><br></br>
+        <b>Description:</b><a> <%= @profile.description %></a>
+        <br><br></br>
+        <b>Photos:</b><div class="pics" > <% @profile.photos.each do |photo| %>
+        <% cl_image_tag photo %>
+        <% end %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <br></br>
+        <%= link_to "Modify", edit_cview_company_path, class: "btn-edit" %>
+      </div>
+    </div>
+    </div>
+    <center><h4>Détails</h4></center>
+    <div class="castors">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+          <b>Ethnicity:</b><a> <%= @profile.ethnicity %></a>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+          <b>Hair color:</b><a> <%= @profile.hair_color %></a>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+          <b>Haircut:</b><a> <%= @profile.haircut %></a>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+          <b>Height:</b><a> <%= @profile.height %></a>
+          <b>Corpulence:</b><a> <%= @profile.corpulence %></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
