@@ -3,7 +3,10 @@ class Cview::ProjectsController < ApplicationController
   before_action :set_project, only: :show
 
   def index
-    @projects = Project.where(company_id: @legal_representative.company_id)
+    @projects = Project.all
+  end
+
+  def show
   end
 
   def new
@@ -32,7 +35,7 @@ class Cview::ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require('project').permit(:name, :description, :date_start, :date_end, :country, photos: [])
+    params.require('project').permit(:name, :description, :date_start, :date_end, :city, :country, photos: [])
   end
 
   def require_legal_representative

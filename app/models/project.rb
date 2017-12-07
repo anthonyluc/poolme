@@ -7,6 +7,8 @@ class Project < ApplicationRecord
   has_many :users, through: :review_projects
   has_many :users, through: :discussions
   has_many :role_skills, through: :roles
+  geocoded_by :city
+  after_validation :geocode, if: :city_changed?
 
   validates :name, presence: true
   validates :description, presence: true
