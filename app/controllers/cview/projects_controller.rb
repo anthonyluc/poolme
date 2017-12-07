@@ -1,5 +1,10 @@
 class Cview::ProjectsController < ApplicationController
   before_action :require_legal_representative
+  before_action :set_project, only: :show
+
+  def index
+    @projects = Project.where(company_id: @legal_representative.company_id)
+  end
 
   def new
     @project = Project.new
@@ -31,9 +36,13 @@ class Cview::ProjectsController < ApplicationController
   end
 
   def require_legal_representative
-    unless LegalRepresentative.exists?(user_id: current_user.id)
+    unless Company.exists?(id: current_user.company)
       redirect_to projects_path
     end
-    @legal_representative = LegalRepresentative.where(user_id: current_user.id)[0]
+    @legal_representative = current_user
+  end
+
+  def set_project
+    @project = Project.find(params[:id])
   end
 end

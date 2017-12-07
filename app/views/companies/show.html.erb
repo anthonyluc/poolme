@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
       <div class="photos">
-        <%= image_tag "model.jpg" %>
+        <%= cl_image_tag @company.photos %>
         <h3><%= @company.name %></h3>
         <c><%= @company.address %>
         <%= @company.country %></c>
@@ -26,18 +26,20 @@
     </div>
     </div>
     <center><h4>The Castor(s)</h4></center>
-  <div class="castors">
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-        Olivier
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-        Grosset-Janin
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-        CEO
+    <%= @legal_representatives.each do |castor| %>
+    <div class="castors">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+          <%= castor.first_name %>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+          <%= castor.last_name %>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+          <%= castor.grade_company %>
+        </div>
       </div>
     </div>
+    <% end %>
   </div>
-</div>
 </div>

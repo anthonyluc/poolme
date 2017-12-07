@@ -1,10 +1,14 @@
-<%= simple_form_for @company(company_params), url: companies_path, method: :post do |f| %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :grade %>
-  <%= f.input :phone_number %>
-  <%= f.input :name %>
-  <%= f.input :country %>
+<%= simple_form_for current_user, url: companies_path, method: :post do |u| %>
+  <%= u.input :first_name %>
+  <%= u.input :last_name %>
+  <%= u.input :grade_company %>
+  <%= u.input :phone_number_pro %>
+  <%= u.input :email_pro, label: 'Email pro' %>
+  <%= u.simple_fields_for :company, @company do |c| %>
+    <%= c.input :name, label: 'Society' %>
+    <%= c.input :country %>
+    <%= c.input :photos, as: :attachinary %>
+  <% end %>
   <br>
-  <%= f.button :submit %>
+  <%= u.button :submit %>
 <% end %>

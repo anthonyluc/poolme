@@ -1,0 +1,15 @@
+<h2>Edit Company</h2>
+<%= simple_form_for @company, url: cview_company_path(@company) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :address %>
+  <%= f.input :country %>
+  <%= f.input :phone_number %>
+  <%= f.simple_fields_for :users, current_user do |u| %>
+    <%= u.input :first_name %>
+    <%= u.input :last_name %>
+    <%= u.input :grade_company %>
+  <% end %>
+
+  <%= f.button :submit %>
+<% end %>

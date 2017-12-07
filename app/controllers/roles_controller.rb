@@ -2,21 +2,12 @@ class RolesController < ApplicationController
   def index
   end
 
-  def create
-  end
-
-  def new
-  end
-
-  def edit
-  end
-
   def show
   end
 
-  def update
-  end
+  private
 
-  def destroy
+  def set_role
+    @role = Role.find(params[:id])
   end
 end

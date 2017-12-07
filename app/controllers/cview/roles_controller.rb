@@ -1,4 +1,4 @@
-class LegalRepresentativesController < ApplicationController
+class RolesController < ApplicationController
   def index
   end
 
@@ -13,6 +13,7 @@ class LegalRepresentativesController < ApplicationController
 
   def edit
   end
+
 
   def update
   end
