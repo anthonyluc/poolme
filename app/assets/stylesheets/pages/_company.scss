@@ -12,7 +12,7 @@
     background-size: cover;
   }
   .photos {
-    padding: 10px 10px 10px 10px;
+    padding: 50px 10px 50px 10px;
     background-color: white;
   }
 
@@ -88,5 +88,11 @@
     background-color: white;
     opacity: 0,9;
     z-index:11;
+  }
+
+  .castors {
+    background-color: white;
+    font-family: Raleway;
+    padding: 10px;
   }
 }
