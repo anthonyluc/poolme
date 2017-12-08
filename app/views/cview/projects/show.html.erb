@@ -29,8 +29,8 @@
   <div class="basic-infos">
     <table>
       <tr>
-        <td> <i class="fa fa-calendar-o" aria-hidden="true"></i> Starts on <%= @project.date_start %> </td>
-        <td> | Ends on <%= @project.date_end %> </td>
+        <td> <i class="fa fa-calendar-o" aria-hidden="true"></i> Starts on <%= @project.date_start.strftime("%d.%m.%y") %> </td>
+        <td> | Ends on <%= @project.date_end.strftime("%d.%m.%y") %> </td>
       </tr>
     </table>
   </div>
