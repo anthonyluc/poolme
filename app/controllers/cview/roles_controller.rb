@@ -37,7 +37,7 @@ class Cview::RolesController < ApplicationController
 
   def update
     @role.update_attributes(role_params)
-    redirect_to cview_project_role_path(project_id: @project, id: @role)
+    redirect_to cview_project_path(project_id: @project)
   end
 
   def destroy
