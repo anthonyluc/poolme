@@ -1,5 +1,4 @@
 .role {
-  margin-top: 70px;
   display: flex;
   align-items: center;
   padding: 20px;
@@ -70,6 +69,20 @@
     font-size: 16px;
     color: #777777;
   }
+}
+
+.roles-exist {
+  box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  border-bottom: 1px solid rgba(255, 255, 255, 0);
+  .active {
+    border-bottom: 1px solid #B9DE50
+  }
+}
+
+.roles-exist:hover {
+  border-bottom: 1px solid #dedede;
 }
 
 

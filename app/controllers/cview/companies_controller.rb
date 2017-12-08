@@ -1,5 +1,5 @@
 class Cview::CompaniesController < ApplicationController
-  before_action :set_company
+  before_action :set_company, only: [:show, :destroy, :edit, :update]
   before_action :require_legal_representative
 
   def show

@@ -43,19 +43,29 @@
   <h4> Roles : </h4>
   <div class="roles-needed">
     <% @roles.each do |r| %>
-      <div class="project-role">
-        <img src='https://kitt.lewagon.com/placeholder/users/alex-felix' class="avatar-large"/> <br>
-        <%= link_to r.name, cview_project_role_path(project_id: @project.id, id: r.id) %>
+    <div class="roles-exist" data-role-id="<%= r.id %>">
+        <div class="project-role">
+          <img src='https://kitt.lewagon.com/placeholder/users/alex-felix' class="avatar-large"/> <br>
+          <%= link_to r.name, cview_project_role_path(project_id: @project.id, id: r.id) %>
+        </div>
       </div>
     <% end %>
     <%= link_to  new_cview_project_role_path(@project) do %>
       <div class="project-role">
         <div class="avatar-large green">
-          <%= render 'add' %>
+          <div id="add-btn" >
+            <%= render 'add' %>
+          </div>
         </div>
       </div>
     <% end %>
   </div>
+
+
+  <% @roles.each do |role| %>
+    <%= render "cview/roles/show", role: role %>
+  <% end %>
+
 
   <div id="map"></div>
 
@@ -87,3 +97,16 @@
     <span class="butn butn-primary">Back</span>
   </div>
 </div>
+
+
+
+<%= content_for :after_js do %>
+  function showRoleDetails(roleId){
+    $( ".role" ).hide();
+    $(".role").filter(`[data-role-id="${roleId}"]`).first().show();
+  }
+
+  $( ".roles-exist" ).bind( "click", function() {
+    showRoleDetails($(this).data("role-id"))
+  });
+<% end %>

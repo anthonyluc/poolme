@@ -1,39 +1,40 @@
-<div class="role">
+<div class="role" data-role-id="<%= role.id %>" style="display: none;">
 
     <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
     <div class="role-name">
-      <h3><%= @role.name %></h3>
-      <p>Hours : <%= @role.hours.to_i %></p>
+      <h3><%= role.name %></h3>
+      <p>Hours : <%= role.hours.to_i %></p>
     </div>
     <div class="role-body">
-      <p><strong>Starts on <%= @role.date_start %> | Ends on <%= @role.date_end %></strong></p>
+      <p><strong>Starts on <%= role.date_start %> | Ends on <%= role.date_end %></strong></p>
       <p>
-        <%= @role.description %>
+        <%= role.description %>
       </p>
-      <p>Specificities :
-        <% if @role.gender && @role.gender != "" %>
-          Gender : <%= @role.gender %>
+      <p> <strong> Specificities : </strong>
+        <% if role.gender && role.gender != "" %>
+          Gender : <%= role.gender %> |
         <% end %>
-        <% if @role.ethnicity && @role.ethnicity != "" %>
-          Ethnicity : <%= @role.ethnicity %>
+        <% if role.ethnicity && role.ethnicity != "" %>
+          Ethnicity : <%= role.ethnicity %> |
         <% end %>
-        <% if @role.hair_color && @role.hair_color != "" %>
-          Hair color : <%= @role.hair_color %>
+        <% if role.hair_color && role.hair_color != "" %>
+          Hair color : <%= role.hair_color %> |
         <% end %>
-        <% if @role.haircut && @role.haircut != "" %>
-          Haircut : <%= @role.haircut %>
+        <% if role.haircut && role.haircut != "" %>
+          Haircut : <%= role.haircut %> |
         <% end %>
-        <% if @role.height && @role.height!= ""  %>
-          Height : <%= @role.height %>
+        <% if role.height && role.height!= ""  %>
+          Height : <%= role.height %> |
         <% end %>
-        <% if @role.corpulence && @role.corpulence != ""  %>
-          Body type : <%= @role.corpulence %>
+        <% if role.corpulence && role.corpulence != ""  %>
+          Body type : <%= role.corpulence %>
         <% end %>
       </p>
     </div>
     <div class="role-status">
-      <p class="status pending">Find</p>
-      <p class="price">Salary : <%= @role.income %> € </p>
+      <p class="status pending">Edit role</p>
+      <p class="status pending">Browse models</p>
+      <p class="price">Salary : <%= role.income %> € </p>
     </div>
 
 </div>
