@@ -1,12 +1,30 @@
 class Cview::ModelsController < ApplicationController
   before_action :require_legal_representative
   before_action :set_role, only: [:index]
-  before_action :set_project, only: [:index]
+  before_action :set_user, only: [:create]
+  before_action :get_role, only: [:create, :update]
+  before_action :set_project, only: [:index, :create, :update]
 
   def index
     vals = {gender: @role.gender, ethnicity: @role.ethnicity, skin_color: @role.skin_color, hair_color: @role.hair_color, haircut: @role.haircut, height: @role.height, weight: @role.weight, corpulence: @role.corpulence}
     vals.reject!{ |key, value| value.nil? }
-    @models = User.where(vals)
+    @users = User.where(vals)
+  end
+
+  def create
+    @model = Model.new(role: @role, user: @user, checked: true)
+    @model.save
+    # if @model.save
+    # else
+    #   render 'cview/roles/show'
+    # end
+  end
+
+  def update
+    @model = Model.find(params[:id])
+    @model.toggle(:checked)
+    @model.save
+    #redirect_to cview_project_role_path(project_id: @project, id: @role)
   end
 
   private
@@ -18,8 +36,16 @@ class Cview::ModelsController < ApplicationController
     @legal_representative = current_user
   end
 
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def set_role
     @role = Role.find(params[:id])
+  end
+
+  def get_role
+    @role = Role.find(params[:role_id])
   end
 
   def set_project

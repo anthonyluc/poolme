@@ -3,16 +3,25 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-        <% @models.each do |m| %>
+        <% @users.each do |u| %>
           <div class="card">
-            <%= link_to profile_path(m.id) do %>
-              <% if m.photos[0] == nil %>
+            <%= link_to profile_path(u.id) do %>
+              <% if u.photos[0] == nil %>
                   <%= image_tag 'defaultcie.jpg' %>
               <% else %>
-                  <%= cl_image_tag m.photos[0].path %>
+                  <%= cl_image_tag u.photos[0].path %>
               <% end %>
-              <h3><%= m.username %></h3>
-              <%= link_to "o",edit_cview_project_role_model_path(project_id: @project.id, role_id: @role.id, id: m.id) %>
+              <h3><%= u.username %></h3>
+              <%=
+                # if @models.include?(u.id)
+                if @models.exists?(user_id: u.id, checked: :true)
+                  link_to "in",cview_project_role_model_path(project_id: @project.id, role_id: @role.id, id: u.id), method: :patch
+                elsif @models.exists?(user_id: u.id, checked: :false)
+                  link_to "out", cview_project_role_models_path(project_id: @project.id, role_id: @role.id, id: u.id), method: :patch
+                else
+                  link_to "out", cview_project_role_models_path(project_id: @project.id, role_id: @role.id, id: u.id), method: :post
+                end
+               %>
             <% end %>
           </div>
         <% end %>
