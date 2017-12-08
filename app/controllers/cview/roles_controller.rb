@@ -8,7 +8,10 @@ class Cview::RolesController < ApplicationController
   end
 
   def show
-    vals = {
+    if params[:discussion_id]
+      redirect_to root_path
+    else
+      vals = {
             gender: @role.gender,
             ethnicity: @role.ethnicity,
             skin_color: @role.skin_color,
@@ -23,6 +26,7 @@ class Cview::RolesController < ApplicationController
 
     @users = User.where(vals)
     @models = Model.where(role: @role).select(:user_id, :checked)
+    end
   end
 
   def new
@@ -44,7 +48,7 @@ class Cview::RolesController < ApplicationController
 
   def update
     @role.update_attributes(role_params)
-    redirect_to cview_project_role_path(project_id: @project, id: @role)
+    redirect_to cview_project_path(project_id: @project)
   end
 
   def destroy
@@ -68,6 +72,10 @@ class Cview::RolesController < ApplicationController
   end
 
   def set_project
-    @project = Project.find(params[:project_id])
+    if params[:discussion_id]
+      @project = Project.find(params[:id])
+    else
+      @project = Project.find(params[:project_id])
+    end
   end
 end
