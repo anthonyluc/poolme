@@ -8,8 +8,19 @@ class Cview::RolesController < ApplicationController
   end
 
   def show
-    vals = {gender: @role.gender, ethnicity: @role.ethnicity, skin_color: @role.skin_color, hair_color: @role.hair_color, haircut: @role.haircut, height: @role.height, weight: @role.weight, corpulence: @role.corpulence}
-    vals.reject!{ |key, value| value.nil? }
+    vals = {
+            gender: @role.gender,
+            ethnicity: @role.ethnicity,
+            skin_color: @role.skin_color,
+            hair_color: @role.hair_color,
+            haircut: @role.haircut,
+            height: @role.height,
+            weight: @role.weight,
+            corpulence: @role.corpulence
+          }
+
+    vals.reject!{ |key, value| value.blank? }
+
     @users = User.where(vals)
     @models = Model.where(role: @role).select(:user_id, :checked)
   end
