@@ -27,6 +27,9 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'country_select'
 
+gem 'sprockets', '>= 3.0.0'
+gem 'sprockets-es6'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'

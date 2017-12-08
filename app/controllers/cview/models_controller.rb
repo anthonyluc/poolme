@@ -14,10 +14,11 @@ class Cview::ModelsController < ApplicationController
   def create
     @model = Model.new(role: @role, user: @user, checked: true)
     @model.save
-    # if @model.save
-    # else
-    #   render 'cview/roles/show'
-    # end
+    @discussion_id = "#{@project.company.name} #{@project.name} #{@user.username}".gsub(/\W/,'-')
+    @discussion = Discussion.new(name: "#{@project.company.name} | #{@project.name}", discussion_id: @discussion_id, user_id: @user.id, project_id: @project.id)
+    @discussion.save
+    @message = Message.new(content: "Hi #{@user.username}, we want you !", discussion_id: @discussion_id, user_id: @user.id)
+    @message.save
   end
 
   def update
