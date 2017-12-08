@@ -21,7 +21,7 @@ class Cview::ModelsController < ApplicationController
   end
 
   def update
-    @model = Model.find(params[:id])
+    @model = Model.where(role_id: params[:role_id], user_id: params[:id])[0]
     @model.toggle(:checked)
     @model.save
     #redirect_to cview_project_role_path(project_id: @project, id: @role)
