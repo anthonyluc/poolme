@@ -1,9 +1,12 @@
 <div class="role" data-role-id="<%= role.id %>" style="display: none;">
 
-    <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+    <div class="avatar-large">
+      <%= render 'unknown' %>
+    </div>
     <div class="role-name">
       <h3><%= role.name %></h3>
-      <p>Hours : <%= role.hours.to_i %></p>
+      <p>Hours : <%= role.hours.to_i %> <br>
+      Salary : <%= role.income %> € </p>
     </div>
     <div class="role-body">
       <p><strong>Starts on <%= role.date_start %> | Ends on <%= role.date_end %></strong></p>
@@ -32,9 +35,8 @@
       </p>
     </div>
     <div class="role-status">
-      <p class="status pending">Edit role</p>
-      <p class="status pending">Browse models</p>
-      <p class="price">Salary : <%= role.income %> € </p>
+      <%= link_to 'Browse models', edit_cview_project_role_path(project_id: @project.id, id: role.id), class: "role-controls"%> <br>
+      <%= link_to 'Edit role', cview_project_role_path(project_id: @project.id, id: role.id), class: "role-controls"%>
     </div>
 
 </div>
