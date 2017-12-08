@@ -26,7 +26,7 @@ class Cview::RolesController < ApplicationController
     @role = Role.new(role_params)
     @role.project = @project
     if @role.save
-      redirect_to cview_project_role_path(project_id: @project, id: @role)
+      redirect_to cview_project_path(@project)
     else
       render :new
     end
@@ -37,7 +37,7 @@ class Cview::RolesController < ApplicationController
 
   def update
     @role.update_attributes(role_params)
-    redirect_to cview_project_path(project_id: @project)
+    redirect_to cview_project_path(@project)
   end
 
   def destroy
