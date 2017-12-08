@@ -13,8 +13,6 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <%= yield %>
-    <%= javascript_include_tag 'application' %>
-    <%= cloudinary_js_config %>
     <div class="footer">
       <div class="footer-links">
         <a href="#"><i class="fa fa-github"></i></a>
@@ -27,6 +25,13 @@
         This footer is made with <i class="fa fa-heart"></i> at Le Wagon
       </div>
     </div>
+
+    <%= javascript_include_tag 'application' %>
+    <%= cloudinary_js_config %>
+    <%= javascript_tag do %>
+      <%= yield :after_js %>
+    <% end %>
+
 
   </body>
 </html>
