@@ -15,7 +15,11 @@ Rails.application.routes.draw do
   end
 
   namespace :cview do
-    resources :discussions
+    resources :discussions do
+      resources :roles, only: [:show] do
+        resources :messages
+      end
+    end
     resources :companies, only: [:show, :edit, :update, :destroy]
     resources :projects do
       resources :roles do

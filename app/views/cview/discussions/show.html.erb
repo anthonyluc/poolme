@@ -1,0 +1,8 @@
+<h2><%= @discussion.name %></h2>
+<% @roles.each do |r| %>
+  <%= link_to cview_discussion_role_path(r.id) do %>
+    <u><%= r.name %></u><br />
+    <%= r.description %><br />
+  <% end %>
+  --
+<% end %>
