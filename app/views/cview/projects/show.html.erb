@@ -43,19 +43,30 @@
   <h4> Roles : </h4>
   <div class="roles-needed">
     <% @roles.each do |r| %>
-      <div class="project-role">
-        <img src='https://kitt.lewagon.com/placeholder/users/alex-felix' class="avatar-large"/> <br>
-        <%= link_to r.name, cview_project_role_path(project_id: @project.id, id: r.id) %>
+    <div class="roles-exist">
+        <div class="project-role">
+          <img src='https://kitt.lewagon.com/placeholder/users/alex-felix' class="avatar-large"/> <br>
+          <%= link_to r.name, cview_project_role_path(project_id: @project.id, id: r.id) %>
+        </div>
       </div>
     <% end %>
     <a href= <% link_to 'add a role', new_cview_project_role_path(@project) %> >
       <div class="project-role">
         <div class="avatar-large green">
-          <%= render 'add' %>
+          <div id="add-btn" >
+            <%= render 'add' %>
+          </div>
         </div>
       </div>
     </a>
   </div>
+
+
+  <% @roles.each do |role| %>
+
+    <%= render "cview/roles/show", role: role %>
+  <% end %>
+
 
   <div id="map"></div>
 
