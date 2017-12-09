@@ -12,7 +12,7 @@ class Cview::ModelsController < ApplicationController
   end
 
   def create
-    @model = Model.new(role: @role, user: @user, checked: true)
+    @model = Model.new(project: @project, role: @role, user: @user, checked: true)
     @model.save
     @discussion_id = "#{@project.company.name} #{@project.name} #{@user.username}".gsub(/\W/,'-')
     @discussion = Discussion.new(name: "#{@project.company.name} | #{@project.name}", discussion_id: @discussion_id, user_id: @user.id, project_id: @project.id)
