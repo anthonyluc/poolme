@@ -1,21 +1,23 @@
 <div id="modelcards">
-  <center><h2>Models</h2></center>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+  <div class="card">
+    <center><h2>Models</h2></center>
+    <div class="content">
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
         <% @users.each do |u| %>
-          <div class="card">
+          <div class="post ter">
+            <div class="preview">
             <%= link_to profile_path(u.id) do %>
               <% if u.photos[0] == nil %>
                   <%= image_tag 'defaultcie.jpg' %>
               <% else %>
                   <%= cl_image_tag u.photos[0].path %>
               <% end %>
-              <h3><%= u.username %></h3>
+            </div>
+            <div class="counter">
               <%=
                 # if @models.include?(u.id)
                 if @models.exists?(user_id: u.id, checked: :true)
-                  link_to "in",cview_project_role_model_path(project_id: @project.id, role_id: @role.id, id: u.id), method: :patch
+                  link_to render('shared/add_button'),cview_project_role_model_path(project_id: @project.id, role_id: @role.id, id: u.id), method: :patch
                 elsif @models.exists?(user_id: u.id, checked: :false)
                   link_to "out", cview_project_role_model_path(project_id: @project.id, role_id: @role.id, id: u.id), method: :patch
                 else
@@ -23,9 +25,9 @@
                 end
                %>
             <% end %>
+            </div>
+            <div class="detail"><h3><%= u.username %>, <%= u.gender %></h3></div>
           </div>
         <% end %>
       </div>
     </div>
-  </div>
-</div>

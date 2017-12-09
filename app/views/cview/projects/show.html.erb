@@ -15,12 +15,11 @@
       <% end %>
 </div>
 
-
-
 <div class="container">
 
   <div class="host">
-    Castor : <%= @project.company.name %>
+    <%= cl_image_tag @project.company.photos.first.path, width: 50, height: 50, crop: :fill, class: "avatar-large" %>
+    <%= @project.company.name %>
   </div>
 
   <div class="col xs-12">
@@ -30,8 +29,8 @@
   <div class="basic-infos">
     <table>
       <tr>
-        <td> <i class="fa fa-calendar-o" aria-hidden="true"></i> Starts on <%= @project.date_start %> </td>
-        <td> | Ends on <%= @project.date_end %> </td>
+        <td> <i class="fa fa-calendar-o" aria-hidden="true"></i> Starts on <%= @project.date_start.strftime("%d.%m.%y") %> </td>
+        <td> | Ends on <%= @project.date_end.strftime("%d.%m.%y") %> </td>
       </tr>
     </table>
   </div>
@@ -45,16 +44,18 @@
     <% @roles.each do |r| %>
     <div class="roles-exist" data-role-id="<%= r.id %>">
         <div class="project-role">
-          <img src='https://kitt.lewagon.com/placeholder/users/alex-felix' class="avatar-large"/> <br>
+          <div class="avatar-large">
+            <%= render 'unknown' %>
+          </div> <br>
           <%= link_to r.name, cview_project_role_path(project_id: @project.id, id: r.id) %>
         </div>
       </div>
     <% end %>
-    <%= link_to  new_cview_project_role_path(@project) do %>
+    <%= link_to new_cview_project_role_path(@project) do %>
       <div class="project-role">
         <div class="avatar-large green">
           <div id="add-btn" >
-            <%= render 'add' %>
+            <%= render 'shared/add_button' %>
           </div>
         </div>
       </div>
