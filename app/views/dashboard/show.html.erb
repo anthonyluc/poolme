@@ -1,0 +1,34 @@
+<h2>Dashboard Project</h2>
+
+Discussion<br/>
+<% @messages.each do |m| %>
+  <%= "#{ m.user.username } : #{ m.content }" %> <br>
+<% end %>
+
+<% if @role.selected_user_id.blank? || @role.selected_user_id == current_user.id %>
+  <%= simple_form_for @message, url: project_dashboard_message_path(@project) do |m| %>
+    <%= m.input :content %>
+    <%= m.button :submit %>
+  <% end %>
+<% end %>
+<br>
+<%=
+  if @role.selected_user_id.blank?
+    if @model.agreed
+      "Waiting for response"
+    else
+      simple_form_for @role, url: project_dashboard_agreed_path(@project) do |f|
+        f.button :submit, value: "I'm agree"
+      end
+    end
+  else
+    if @role.selected_user_id == current_user.id
+       "Great, you have been chosen !"
+    else
+      "Damn, another model has been chosen..."
+    end
+  end %><br/>
+
+Project : <%= raw ap @project %>
+Role : <%= raw ap @role %>
+Messages : <%= raw ap @messages %>

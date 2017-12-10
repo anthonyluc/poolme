@@ -12,12 +12,14 @@ class Cview::ModelsController < ApplicationController
   end
 
   def create
-    @model = Model.new(role: @role, user: @user, checked: true)
+    @model = Model.new(project: @project, role: @role, user: @user, checked: true)
     @model.save
     @discussion_id = "#{@project.company.name} #{@project.name} #{@user.username}".gsub(/\W/,'-')
-    @discussion = Discussion.new(name: "#{@project.company.name} | #{@project.name}", discussion_id: @discussion_id, user_id: @user.id, project_id: @project.id)
+    @discussion = Discussion.new(name: "#{@project.name}", discussion_id: @discussion_id, user_id: current_user.id, project_id: @project.id)
     @discussion.save
-    @message = Message.new(content: "Hi #{@user.username}, we want you !", discussion_id: @discussion_id, user_id: @user.id)
+    @discussion = Discussion.new(name: "#{@project.name}", discussion_id: @discussion_id, user_id: @user.id, project_id: @project.id)
+    @discussion.save
+    @message = Message.new(content: "Hi #{@user.username}, we want you !", discussion_id: @discussion_id, user_id: current_user.id)
     @message.save
   end
 
@@ -34,7 +36,7 @@ class Cview::ModelsController < ApplicationController
     unless Company.exists?(id: current_user.company_id)
       redirect_to projects_path
     end
-    @legal_representative = current_user
+   # @legal_representative = current_user
   end
 
   def set_user

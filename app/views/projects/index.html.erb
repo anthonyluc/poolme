@@ -1,1 +1,10 @@
 <h2>My projects</h2>
+<% @projects.each do |p| %>
+  <%= link_to project_user_dashboard_path(p[:project].id) do %>
+   name : <%= p[:project].name %><br/>
+   description : <%= p[:project].description %><br/>
+   role : <%= p[:role].name %><br/>
+ <% end %>
+<% end %>
+
+<%= raw ap @projects %>

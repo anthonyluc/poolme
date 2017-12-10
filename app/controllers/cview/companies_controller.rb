@@ -29,10 +29,11 @@ class Cview::CompaniesController < ApplicationController
     unless @company.id == current_user.company_id
       redirect_to projects_path
     end
-    @legal_representative = current_user
+   # @legal_representative = current_user
   end
 
   def set_company
-    @company = Company.find(params[:id])
+    # @company = Company.find(params[:id])
+    @company = Company.find(current_user.company_id)
   end
 end

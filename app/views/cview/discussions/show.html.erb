@@ -1,6 +1,6 @@
-<h2><%= @discussion.name %></h2>
+<h2><%= @discussion.name %> (Role's list)</h2>
 <% @roles.each do |r| %>
-  <%= link_to cview_discussion_role_path(r.id) do %>
+  <%= link_to cview_discussion_role_list_model_index_path(discussion_project_id: @discussion.project_id, role_id: r.id) do %>
     <u><%= r.name %></u><br />
     <%= r.description %><br />
   <% end %>
