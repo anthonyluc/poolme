@@ -1,17 +1,14 @@
 class Cview::DiscussionsController < ApplicationController
   before_action :require_legal_representative
+  before_action :set_project, only: :show
   before_action :set_discussion, only: :show
 
   def index
     @projects = Project.where(company_id: current_user.company_id)
-    @discussions = []
-    @projects.each { |p|
-      @discussions << Discussion.where(project_id: p.id)[0]
-    }
   end
 
   def show
-    @roles = Role.where(project_id: @discussion.project_id)
+    @roles = Role.where(project: @project)
   end
 
   def new
@@ -46,10 +43,15 @@ class Cview::DiscussionsController < ApplicationController
     unless Company.exists?(id: current_user.company_id)
       redirect_to projects_path
     end
-    @legal_representative = current_user
+  #  @legal_representative = current_user
+  end
+
+  def set_project
+    @project = Project.where(id: params[:project_id], company_id: current_user.company_id)
   end
 
   def set_discussion
-    @discussion = Discussion.find(params[:id])
+    @discussion = Discussion.where(project: @project).first
   end
+
 end

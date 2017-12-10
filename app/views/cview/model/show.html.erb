@@ -1,0 +1,24 @@
+<h2> Discussion with <%= @model.username %></h2>
+
+<% @messages.each do |m| %>
+  <%= "#{ m.user.username } : #{ m.content }" %> <br>
+<% end %>
+
+<%= simple_form_for @message, url: cview_discussion_role_model_create_path(@project, @role, params[:id]) do |m| %>
+  <%= m.input :content %>
+  <%= m.button :submit %>
+<% end %>
+
+<%=
+  unless @role.selected_user_id.is_a?(Fixnum)
+   if @agreed
+    simple_form_for @role, url: cview_discussion_role_model_accept_path(project_id: @project.id, role_id: @role.id, id: @model.id) do |f|
+      f.button :submit, value: "I want this model"
+    end
+   else
+    "Waiting for agreed"
+   end
+  else
+    "Done"
+  end
+ %>

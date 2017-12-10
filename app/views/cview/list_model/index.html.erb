@@ -1,0 +1,10 @@
+<h2>Discussions (All models I selected with last message)</h2>
+<h3> <%= @discussions[0][:discussion][:name] %></h3>
+<% @discussions.each do |d| %>
+  <%= link_to cview_discussion_role_model_path(discussion_id: d[:discussion][:id], role_id: params[:role_id], id: d[:user][:id]) do %>
+    <%= "model : #{ d[:user][:username] } " %><br/>
+    <%= "#{ d[:last_message_user] } : #{ d[:last_message][:content] }" %><br/>
+    <%= "#{ d[:last_message][:created_at] }" %>
+    <br/><br/>
+  <% end %>
+<% end %>

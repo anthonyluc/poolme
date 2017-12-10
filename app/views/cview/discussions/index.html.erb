@@ -1,4 +1,4 @@
-<h2>Discussions</h2>
-<% @discussions.each do |d| %>
-  <%= link_to d.name, cview_discussion_path(d) %>
+<h2>Discussions (Project's list)</h2>
+<% @projects.each do |p| %>
+  <%= link_to p.name, cview_discussion_path(p) %>
 <% end %>
