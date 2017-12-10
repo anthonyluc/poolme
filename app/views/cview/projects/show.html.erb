@@ -11,14 +11,18 @@
         <%= cl_image_tag photo.path, width: 2000, height: 450, crop: :fill %>
         <% end %>
       <% else %>
-         'https://picsum.photos/2000/450?image=513'
+        'https://picsum.photos/2000/450?image=513'
       <% end %>
 </div>
 
 <div class="container">
 
   <div class="host">
-    <%= cl_image_tag @project.company.photos.first.path, width: 50, height: 50, crop: :fill, class: "avatar-large" %>
+    <% if @project.company.photos? %>
+      <%= cl_image_tag @project.company.photos.first.path, width: 50, height: 50, crop: :fill, class: "avatar-large" %>
+    <% else %>
+      <%= image_tag 'dpro.jpg' %>
+    <% end %>
     <%= @project.company.name %>
   </div>
 

@@ -4,8 +4,8 @@
 <div class="container" style="width: 500px">
 <center><h2>Log in</h2></center>
 <br>
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs", style='color: white'>
+<%=  simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-inputs", style='font-family: "Raleway";'>
     <%= f.input :email, required: false, autofocus: true %>
     <%= f.input :password, required: false %>
     <br>
@@ -16,9 +16,9 @@
     <%= f.button :submit, "Log in" %>
   </div>
 <% end %>
-<br></br>
+<br></br><br></br>
 <center>
 <%= render "devise/shared/links" %>
 </center>
+<br></br>
 </div>
-

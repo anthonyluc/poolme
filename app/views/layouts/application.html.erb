@@ -7,11 +7,13 @@
     <title>Castors</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag 'application', media: 'all'%>
+    <%= favicon_link_tag 'favicon.ico' %>
   </head>
   <body class="<%= params[:controller] %> <%= params[:action] %>">
     <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
+    <%= render 'shared/message' %>
     <%= yield %>
     <div class="footer">
       <div class="footer-links">
@@ -25,8 +27,6 @@
         This footer is made with <i class="fa fa-heart"></i> at Le Wagon
       </div>
     </div>
-
-    <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
     <%= javascript_tag do %>
       <%= yield :after_js %>
