@@ -7,26 +7,40 @@
 
     <!-- Right Navigation -->
     <div class="navbar-wagon-right hidden-xs hidden-sm">
-
       <% if user_signed_in? %>
-
         <!-- Links when logged in -->
-        <%= link_to "Agency Access", new_company_path, class: "aacc" %>
-        <%= link_to "My projects", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-        <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+        <% if url.exclude?('cview')%>
+          <%= link_to "Projects", projects_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <%= link_to "My profile", profile_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+        <% else %>
+          <!-- Links when logged in and with 'cview' in url -->
+          <% unless current_user.company_id.blank? %>
+            <%= link_to "Projects", cview_projects_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <% end %>
+          <%= link_to "Discussions", cview_discussions_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <%= link_to "My company", cview_company_path(current_user.company_id), class: "navbar-wagon-item navbar-wagon-link" %>
+        <% end %>
 
-        <!-- Avatar with dropdown menu -->
+        <!-- Avatar with dropdown menu (All)-->
         <div class="navbar-wagon-item">
           <div class="dropdown">
-            <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-            <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <!-- No agency -->
+            <% if url.exclude?('cview')%>
+              <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+              <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+                <li>
+                  <%= link_to "Agency", cview_projects_path, class: "navbar-wagon-item navbar-wagon-link" %>
+                </li>
+            <% else %>
+            <!-- for agency -->
+              <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+              <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+                <li>
+                  <%= link_to "My account", projects_path, class: "navbar-wagon-item navbar-wagon-link" %>
+                </li>
+            <% end %>
               <li>
-                <%= link_to "#" do %>
-                  <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to "#" do %>
+                <%= link_to edit_user_registration_path do %>
                   <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
                 <% end %>
               </li>
@@ -42,6 +56,7 @@
         <!-- Login link (when logged out) -->
         <%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Agency", new_company_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <% end %>
     </div>
 
@@ -51,9 +66,43 @@
       <div class="dropdown">
         <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><%= link_to "Agency Access", new_company_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <!-- No agency menu -->
+          <% if url.exclude?('cview')%>
+            <li><%= link_to "Projects", projects_path, class: "navbar-wagon-item navbar-wagon-link" %>
+            </li>
+            <li><%= link_to "My profile", profile_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+            </li>
+            <% unless current_user.company_id.blank? %>
+              <li>
+                <%= link_to "Agency", cview_projects_path, class: "navbar-wagon-item navbar-wagon-link" %>
+              </li>
+            <% end %>
+          <% else %>
+            <!-- (Company view) Links when logged in and with 'cview' in url -->
+            <% unless current_user.company_id.blank? %>
+              <li>
+                <%= link_to "Projects", cview_projects_path, class: "navbar-wagon-item navbar-wagon-link" %>
+              </li>
+              <li>
+                <%= link_to "Discussions", cview_discussions_path, class: "navbar-wagon-item navbar-wagon-link" %>
+              </li>
+              <li>
+                <%= link_to "My company", cview_company_path(current_user.company_id), class: "navbar-wagon-item navbar-wagon-link" %>
+              </li>
+              <li>
+                <%= link_to "My account", projects_path, class: "navbar-wagon-item navbar-wagon-link" %>
+              </li>
+            <% end %>
+          <% end %>
+          <li>
+            <%= link_to edit_user_registration_path do %>
+             <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
+            <% end %>
           </li>
-          <li><%= link_to "My projects", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+            <% end %>
           </li>
         </ul>
       </div>
@@ -63,9 +112,9 @@
       <div class="dropdown">
         <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
-          </li>
+          <li><%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
           <li><%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+          <li><%= link_to "Agency", new_company_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
         </ul>
       </div>
     </div>
