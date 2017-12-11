@@ -1,9 +1,24 @@
-<h2>Projects#index</h2>
-
-<% @projects.each do |p| %>
-  <%= link_to p.name, cview_project_path(p) %><br />
-  <%= p.description %><br />
-  <%= p.date_start %><br />
-  <%= p.date_end %><br />
-  <%= p.country %><br /><br />
-<% end %>
+<center><h2>My Projects</h2></center>
+  <div id="projects-module">
+    <div class="messages">
+    <% @projects.each do |p| %>
+    <div class="message">
+        <div class="avatar-large">
+        <% if p.photos? %>
+        <%= cl_image_tag p.photos.first.path %>
+        <% else %>
+            <%= image_tag 'dpro.jpg' %>
+        <% end %>
+      </div>
+      <div class="message-name">
+        <h3><%= link_to p.name, cview_project_path(p) %>, <%= p.country %></h3>
+        <p>Starts at: <%= p.date_start %></p>
+        <p>Ends: <%= p.date_end %></p>
+      </div>
+      <div class="message-status">
+        <p class="status pending">Pending</p>
+      </div>
+    </div>
+    <% end %>
+</div>
+</div>
