@@ -5,11 +5,11 @@
   <%= u.input :phone_number_pro %>
   <%= u.input :email_pro, label: 'Email pro' %>
   <%= u.simple_fields_for :companies, @company do |c| %>
-    <%= c.input :name, label: 'Society' %>
+    <%= c.input :name, required: false, label: 'Society' %>
     <%= c.input :country %>
     <br>
     <%= c.input :photos, as: :attachinary %>
   <% end %>
   <br>
-  <%= u.button :submit %>
+  <%= u.button :submit, 'Create your Dam'%>
 <% end %>

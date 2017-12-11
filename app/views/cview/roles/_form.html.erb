@@ -1,10 +1,10 @@
-<%= f.input :name %>
-<%= f.input :description %>
+<%= f.input :name, required: false %>
+<%= f.input :description, required: false %>
 
-<%= f.input :date_start %>
-<%= f.input :date_end %>
-<%= f.input :income %>
-<%= f.input :hours %>
+<%= f.input :date_start, required: false %>
+<%= f.input :date_end, required: false %>
+<%= f.input :income, required: false %>
+<%= f.input :hours, required: false %>
 <%= f.input :gender %>
 <%= f.input :ethnicity %>
 <%= f.input :skin_color %>
@@ -14,4 +14,4 @@
 <%= f.input :weight %>
 <%= f.input :corpulence %>
 <br>
-<%= f.button :submit %>
+<center><%= f.button :submit %></center>

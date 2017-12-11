@@ -159,17 +159,29 @@
   z-index: -1;
   background-size: cover;
   width: 100%;
+  opacity: 0.5;
 }
 
 .container {
-  margin-top: 100px;
+  margin-top: 70px
 }
 
 h2 {
   padding: 50px 0px 30px 0px;
   font-size: 40px;
+  font-family: 'Raleway';
 }
 
+h1 {
+  text-align: right;
+  font-size: 80px;
+}
 
+.formm{
+  padding: 20px;
+  padding-top: 40px;
+  background-color: white;
+  opacity: 0.7;
+}
 
 
