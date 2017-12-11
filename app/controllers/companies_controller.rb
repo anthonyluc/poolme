@@ -10,7 +10,11 @@ class CompaniesController < ApplicationController
   end
 
   def new
-    @company = Company.new
+    if current_user.company_id.blank?
+      @company = Company.new
+    else
+      redirect_to cview_projects_path
+    end
   end
 
   def create

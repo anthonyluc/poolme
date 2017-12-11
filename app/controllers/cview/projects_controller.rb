@@ -16,7 +16,7 @@ class Cview::ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    @project.company_id = @legal_representative.company_id
+    @project.company_id = current_user.company_id
     if @project.save
       redirect_to cview_project_path(@project)
     else
