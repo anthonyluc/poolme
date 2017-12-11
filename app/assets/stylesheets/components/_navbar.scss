@@ -88,4 +88,16 @@
     border-left: 1px solid #E6E6E6;
     border-top: 1px solid #E6E6E6;
   }
+
+  .aacc{
+    border: 1px solid white;
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+  }
+
+   .aacc:hover {
+    color: #B9DE50;
+    text-decoration: none;
+  }
 }
