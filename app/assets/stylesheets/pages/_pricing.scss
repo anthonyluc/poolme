@@ -1,14 +1,3 @@
-#money-pic {
-  color: white;
-  text-align: center;
-  height: 600px;
-  background-image: url("https://picsum.photos/2000/900?image=904");
-  /* if you have a 70px navbar => height: calc(100vh - 70px); */
-  background-size: fill !important;
-  overflow: hidden;
-  z-index: 0;
-}
-
 #pricing-module {
   background-color: white;
   font-weight: lighter;

@@ -1,4 +1,24 @@
-<h2>Discussions (Project's list)</h2>
-<% @projects.each do |p| %>
-  <%= link_to p.name, cview_discussion_path(p) %>
-<% end %>
+<center><h2>My Messages</h2></center>
+  <div id="discussion-module">
+    <div class="messages">
+    <% @projects.each do |p| %>
+    <div class="message">
+        <div class="avatar-large">
+        <% if p.photos? %>
+        <%= cl_image_tag p.photos.first.path %>
+        <% else %>
+            <%= image_tag 'dpro.jpg' %>
+        <% end %>
+      </div>
+      <div class="message-name">
+        <h3><%= link_to p.name, cview_discussion_path(p) %>, <%= p.country %></h3>
+        <p>Starts at: <%= p.date_start %></p>
+        <p>Ends: <%= p.date_end %></p>
+      </div>
+      <div class="message-status">
+        <p class="status pending">Pending</p>
+      </div>
+    </div>
+    <% end %>
+</div>
+</div>

@@ -6,8 +6,8 @@
     <p><%= @project.description %></p>
     <div class="icons"><a href="#"><i class="ion-ios-home"></i></a><a href="#"><i class="ion-ios-email"></i></a><a href="#"><i class="ion-ios-telephone"></i></a></div>
   </figcaption>
-  <div class="image"><% if @project.company.photos? %>
-      <%= cl_image_tag @project.company.photos.first.path, width: 50, height: 50, crop: :fill, class: "avatar-large" %>
+  <div class="image"><% if @project.photos? %>
+      <%= cl_image_tag @project.photos.first.path, width: 50, height: 50, crop: :fill, class: "avatar-large" %>
     <% else %>
       <%= image_tag 'dpro.jpg' %>
     <% end %></div>
