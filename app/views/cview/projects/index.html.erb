@@ -1,4 +1,7 @@
 <center><h2>My Projects</h2></center>
+<div class=avatar-large>
+  <%= link_to render('shared/add_button'), new_cview_project_path %>
+</div>
   <div id="projects-module">
     <div class="messages">
     <% @projects.each do |p| %>
