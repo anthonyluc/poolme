@@ -7,7 +7,7 @@
         <% if @profile.photos[0] == nil %>
           <%= image_tag 'defaultcie.jpg', width: 300, height: 200, crop: :fill %>
         <% else %>
-          <%= cl_image_tag @profile.photos[0].path, width: 300, height: 200, crop: :fill %>
+          <%= image_tag avatar_path(@profile), width: 300, height: 200, crop: :fill %>
         <% end %>
         <h3><%= @profile.first_name %>, <%= @profile.gender %></h3>
         <c><%= @profile.address %>
