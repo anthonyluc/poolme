@@ -13,7 +13,7 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:user).permit(:first_name, :last_name, :phone_number, :description, :address, :city, :country, :newsletter, :model, :gender, :ethnicity, :skin_color, :hair_color, :haircut, :height, :weight, :corpulence)
+    params.require(:user).permit(:first_name, :last_name, :phone_number, :description, :address, :city, :country, :newsletter, :model, :gender, :ethnicity, :skin_color, :hair_color, :haircut, :height, :weight, :corpulence, photos: [])
   end
 
   def profile_pro_params
