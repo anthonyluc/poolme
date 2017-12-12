@@ -35,8 +35,8 @@
       </p>
     </div>
     <div class="role-status">
-      <%= link_to 'Browse models', edit_cview_project_role_path(project_id: @project.id, id: role.id), class: "role-controls"%> <br>
-      <%= link_to 'Edit role', cview_project_role_path(project_id: @project.id, id: role.id), class: "role-controls"%>
+      <%= link_to 'Browse models', cview_project_role_path(project_id: @project.id, id: role.id), class: "role-controls"%>
+      <%= link_to 'Edit role', edit_cview_project_role_path(project_id: @project.id, id: role.id), class: "role-controls"%> <br>
     </div>
 
 </div>

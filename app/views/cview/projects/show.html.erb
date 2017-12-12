@@ -83,9 +83,8 @@
 <br></br>
 <!-- something with a if current_user == @project.user -->
   <div class="manage-project">
-    <span class="butn butn-primary">Edit</span>
-    <span class="butn butn-primary">Delete</span>
-    <span class="butn butn-primary">Back</span>
+    <span class="butn butn-primary"> <%= link_to 'Edit', edit_cview_project_path %></span>
+    <span class="butn butn-primary"><%= link_to 'Back', cview_projects_path %></span>
   </div>
 </div>
 

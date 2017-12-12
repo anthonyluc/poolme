@@ -9,7 +9,11 @@ class Cview::CompaniesController < ApplicationController
   def update
     current_user.update_attributes(user_params[:users_attributes]['0'])
     @company.update_attributes(company_params)
-    redirect_to edit_cview_company_path(@company)
+    if @company.update(company_params)
+      redirect_to company_path(@company)
+    else
+      redirect_to edit_cview_company_path(@company)
+    end
   end
 
   def destroy
@@ -22,7 +26,7 @@ class Cview::CompaniesController < ApplicationController
   end
 
   def company_params
-    params.require(:company).permit(:name, :country, photos: [])
+    params.require(:company).permit(:name, :country, :description, :address, :phone_numer, :email, :website, photos: [])
   end
 
   def require_legal_representative
