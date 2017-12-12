@@ -1,6 +1,10 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.action_mailer.delivery_method     = :sendgrid
+  config.action_mailer.sendgrid_settings   = { api_key: ENV['SENDGRID_API_KEY'] }
+  config.action_mailer.default_url_options = { host: "castors.co" }
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
