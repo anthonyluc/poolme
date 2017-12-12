@@ -5,7 +5,7 @@
     <div class="message">
         <div class="avatar-large">
         <% if p.photos? %>
-        <%= cl_image_tag p.photos.first.path %>
+        <%= image_tag avatar_path(p) %>
         <% else %>
             <%= image_tag 'dpro.jpg' %>
         <% end %>

@@ -10,7 +10,7 @@
               <% if u.photos[0] == nil %>
                   <%= image_tag 'defaultcie.jpg' %>
               <% else %>
-                  <%= cl_image_tag u.photos[0].path %>
+                  <%= image_tag avatar_path(u) %>
               <% end %>
             </div>
             <div class="counter">
