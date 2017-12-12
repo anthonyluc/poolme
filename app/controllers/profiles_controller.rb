@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
 
   def update
     @profile.update_attributes(profile_params)
+    authorize @profile
     redirect_to profile_path(@profile)
   end
 
@@ -10,6 +11,7 @@ class ProfilesController < ApplicationController
 
   def set_profile
     @profile = User.find(params[:id])
+    authorize @profile
   end
 
   def profile_params

@@ -2,7 +2,7 @@
   <div class="card">
     <center><h2>Models</h2></center>
     <div class="content">
-      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+      <div class="col-xs-4 col-sm-4 col-md-12 col-lg-12">
         <% @users.each do |u| %>
           <div class="post ter">
             <div class="preview">
@@ -10,7 +10,7 @@
               <% if u.photos[0] == nil %>
                   <%= image_tag 'defaultcie.jpg' %>
               <% else %>
-                  <%= cl_image_tag u.photos[0].path %>
+                  <%= image_tag avatar_path(u) %>
               <% end %>
             </div>
             <div class="counter">

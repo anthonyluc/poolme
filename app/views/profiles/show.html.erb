@@ -7,7 +7,7 @@
         <% if @profile.photos[0] == nil %>
           <%= image_tag 'defaultcie.jpg', width: 300, height: 200, crop: :fill %>
         <% else %>
-          <%= cl_image_tag @profile.photos[0].path, width: 300, height: 200, crop: :fill %>
+          <%= image_tag avatar_path(@profile), width: 300, height: 200, crop: :fill %>
         <% end %>
         <h3><%= @profile.first_name %>, <%= @profile.gender %></h3>
         <c><%= @profile.address %>
@@ -30,7 +30,9 @@
       </div>
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
         <br></br>
-        <%= link_to "Modify", edit_profile_path(current_user), class: "btn-edit" %>
+        <% if policy(@profile).edit? %>
+          <%= link_to "Modify", edit_profile_path(current_user), class: "btn-edit" %>
+        <% end %>
       </div>
     </div>
     </div>

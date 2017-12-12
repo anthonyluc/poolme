@@ -6,6 +6,9 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
   after_create :send_welcome_email
 
+  geocoded_by :city
+  after_validation :geocode, if: :city_changed?
+
   has_many :companies
   has_many :messages
   has_many :discussions
@@ -18,10 +21,22 @@ class User < ApplicationRecord
   has_many :projects, through: :discussions
 
   validates :username, uniqueness: true, presence: true
+  # validates :gender, inclusion: { in: ["male", "female", "other"] }
+  # validates :hair_color, inclusion: { in: ["black", "brown", "blond", "red", "grey", "white", "other"] }
+  # validates :haircut, inclusion: { in: ["bald", "short", "mid-length", "long"] }
+  # validates :ethnicity, inclusion: { in: ["european", "african", "asian", "other"] }
+  # validates :corpulence, inclusion: { in: ["light-weight", "regular", "heavy-weight", "athletic"] }
   accepts_nested_attributes_for :companies
   has_attachments :photos, maximum: 10
 
   private
+
+  include AlgoliaSearch
+
+  algoliasearch do
+    attribute :city, :gender, :date_of_birth, :ethnicity, :hair_color, :haircut, :height, :corpulence
+  end
+
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)

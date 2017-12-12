@@ -1,14 +1,5 @@
-<h2> Discussion with <%= @model.username %></h2>
-
-<% @messages.each do |m| %>
-  <%= "#{ m.user.username } : #{ m.content }" %> <br>
-<% end %>
-
-<%= simple_form_for @message, url: cview_discussion_role_model_create_path(@project, @role, params[:id]) do |m| %>
-  <%= m.input :content %>
-  <%= m.button :submit %>
-<% end %>
-
+<center><br><h2> Discussion with <%= @model.username %></h2></center>
+<center>Status:
 <%=
   unless @role.selected_user_id.is_a?(Fixnum)
    if @agreed
@@ -22,3 +13,71 @@
     "Done"
   end
  %>
+</center>
+<div id='discussion-moduler'>
+<div class="containerrrr">
+<div class="containerrr">
+
+            <h3>Role: <%= @discussion.name %></h3>
+
+        <input type="radio" id='one' name='contorol' checked/>
+        <label for="one"><i class='icon-comments-alt'></i></label>
+        <input type="radio" id='two' name='contorol' />
+        <label for="two"><i class='icon-user'></i></label>
+        <input type="radio" id='three' name='contorol' />
+        <label for="three"><i class='icon-link'></i></label>
+
+<div class="all">
+        <div class="chat">
+            <div class="show-message">
+              <% @messages.each do |m| %>
+                <% if m.user == @model %>
+                  <div class="friend">
+                    <% if @model.photos[0] == nil %>
+                    <%= image_tag 'defaultcie.jpg', width: 32, height: 32, crop: :fill %>
+                    <% else %>
+                    <%= cl_image_tag @model.photos[0].path, width: 32, height: 32, crop: :fill %>
+                    <% end %>
+                      <div class="message">
+                          <p><%= "#{ m.content }" %></br>
+                          </p>
+                      </div>
+                  </div>
+                <% else %>
+                  <div class="me">
+                    <% if current_user.photos[0] == nil %>
+                      <%= image_tag 'defaultcie.jpg', width: 32, height: 32, crop: :fill %>
+                    <% else %>
+                      <%= cl_image_tag current_user.photos[0].path, width: 32, height: 32, crop: :fill %>
+                    <% end %>
+                      <div class="message">
+                      <p><%= "#{ m.content }" %> <br>
+                      </p></div>
+                  </div>
+                <% end %>
+              <% end %>
+                <div class="badboy"></div>
+            </div>
+            <div class="type-text">
+                <%= simple_form_for @message, url: cview_discussion_role_model_create_path(@project, @role, params[:id]) do |m| %>
+                      <%= m.input :content, label:false, required: false %>
+                      <%= m.button :submit, "Send" %>
+                    <% end %>
+            </div>
+        </div>
+
+        <div class="Description">
+            <p>
+            </p>
+        </div>
+
+        <div class="Link">
+            <div class="menu">
+            </div>
+        </div>
+
+        <div class="badboy"></div>
+    </div>
+</div>
+</div>
+</div>

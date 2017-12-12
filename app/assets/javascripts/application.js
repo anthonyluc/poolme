@@ -5,6 +5,7 @@
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
 //= require toastr
+//= require algolia/v3/algoliasearch.min
 //= require_tree .
 
 toastr.options = {
