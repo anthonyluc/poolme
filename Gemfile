@@ -9,6 +9,7 @@ gem 'rails', '5.1.4'
 gem 'redis'
 gem "awesome_print"
 gem 'toastr-rails'
+gem 'sendgrid'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'

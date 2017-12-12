@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
+  after_create :send_welcome_email
 
   has_many :companies
   has_many :messages
@@ -19,6 +20,8 @@ class User < ApplicationRecord
   validates :username, uniqueness: true, presence: true
   accepts_nested_attributes_for :companies
   has_attachments :photos, maximum: 10
+
+  private
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
@@ -39,5 +42,9 @@ class User < ApplicationRecord
     end
 
     return user
+  end
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
   end
 end
