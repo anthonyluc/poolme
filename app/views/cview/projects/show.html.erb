@@ -34,9 +34,17 @@
     <% @roles.each do |r| %>
     <div class="roles-exist" data-role-id="<%= r.id %>">
         <div class="project-role">
-          <div class="avatar-large">
-            <%= render 'unknown' %>
-          </div> <br>
+          <% if r.selected_user_id? %>
+            <div class="avatar-large">
+              <% s_user = User.find(r[:selected_user_id]) %>
+              <%= cl_image_tag s_user.photos.first.path, class: "avatar-large" %>
+            </div>
+          <% else %>
+            <div class="avatar-large">
+              <%= render 'unknown' %>
+            </div>
+          <% end %>
+          <br>
           <%= link_to r.name, cview_project_role_path(project_id: @project.id, id: r.id) %>
         </div>
       </div>
