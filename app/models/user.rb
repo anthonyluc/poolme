@@ -18,6 +18,11 @@ class User < ApplicationRecord
   has_many :projects, through: :discussions
 
   validates :username, uniqueness: true, presence: true
+  validates :gender, inclusion: { in: ["male", "female", "other"] }
+  validates :hair_color, inclusion: { in: ["black", "brown", "blond", "red", "grey", "white", "other"] }
+  validates :haircut, inclusion: { in: ["bald", "short", "mid-length", "long"] }
+  validates :ethnicity, inclusion: { in: ["european", "african", "asian", "other"] }
+  validates :corpulence, inclusion: { in: ["light-weight", "regular", "heavy-weight", "athletic"] }
   accepts_nested_attributes_for :companies
   has_attachments :photos, maximum: 10
 
