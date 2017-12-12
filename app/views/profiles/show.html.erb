@@ -30,7 +30,9 @@
       </div>
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
         <br></br>
-        <%= link_to "Modify", edit_profile_path(current_user), class: "btn-edit" %>
+        <% if policy(@profile).edit? %>
+          <%= link_to "Modify", edit_profile_path(current_user), class: "btn-edit" %>
+        <% end %>
       </div>
     </div>
     </div>

@@ -7,6 +7,7 @@ class DashboardController < ApplicationController
 
   def show
     @message = Message.new
+    authorize @message
   end
 
   def message
@@ -27,22 +28,27 @@ class DashboardController < ApplicationController
 
   def set_project
     @project = Project.find(params[:project_id])
+    authorize @project
   end
 
   def set_model
     @model = Model.where(project: @project, user: current_user)[0]
+    authorize @model
   end
 
   def set_role
     @role = Role.find(@model.role_id)
+    authorize @role
   end
 
   def set_discussion
     @discussion = Discussion.where(project: @project, user: current_user)[0]
+    authorize @discussion
   end
 
   def set_messages
     @messages = Message.where(discussion_id: @discussion.discussion_id)
+    authorize @messages
   end
 
   def message_params
