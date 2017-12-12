@@ -10,6 +10,8 @@ gem 'redis'
 gem "awesome_print"
 gem 'toastr-rails'
 gem 'sendgrid'
+gem 'pundit'
+gem 'algoliasearch-rails'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'

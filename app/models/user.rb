@@ -28,6 +28,13 @@ class User < ApplicationRecord
 
   private
 
+  include AlgoliaSearch
+
+  algoliasearch do
+    attribute :city, :gender, :date_of_birth, :ethnicity, :hair_color, :haircut, :height, :corpulence
+  end
+
+
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
