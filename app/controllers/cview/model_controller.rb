@@ -14,7 +14,7 @@ class Cview::ModelController < ApplicationController
   def create
     @message = Message.new(content: message_params[:content], discussion_id: @discussion.discussion_id, user:current_user)
     if @message.save
-      redirect_to cview_discussion_role_model_path(@project, @role, params[:id])
+      redirect_to cview_role_model_path(@role, params[:id])
     else
       @messages = Message.where(discussion_id: @discussion.discussion_id)
       render :show

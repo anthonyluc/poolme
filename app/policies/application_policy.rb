@@ -10,6 +10,17 @@ class ApplicationPolicy
     false
   end
 
+  def message?
+    true
+  end
+
+  def agreed?
+    true
+  end
+  def accept?
+    true
+  end
+
   def show?
     scope.where(:id => record.id).exists?
   end

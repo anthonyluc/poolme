@@ -4,8 +4,8 @@
   <% @projects.each do |p| %>
   <div class="message">
     <div class="avatar-large">
-      <% if p.photos? %>
-        <%= image_tag avatar_path(p) %>
+      <% if p[:project].photos.exists? %>
+        <%= image_tag avatar_path(p[:project]) %>
       <% else %>
         <%= image_tag 'dpro.jpg' %>
       <% end %>

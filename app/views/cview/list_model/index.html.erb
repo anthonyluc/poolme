@@ -4,7 +4,7 @@
 <div id="discussion-module" style="text-align: right; padding-left: 200px;">
   <div class="messages" style="display: flex;">
       <% @discussions.each do |d| %>
-        <%= link_to cview_discussion_role_model_path(discussion_id: d[:discussion][:id], role_id: params[:role_id], id: d[:user][:id]) do %>
+        <%= link_to cview_role_model_path(role_id: params[:role_id], id: d[:user][:id]) do %>
         <%= "#{ d[:user][:username] } " %>
         <br/><br/><br/>
         <div class="message">
