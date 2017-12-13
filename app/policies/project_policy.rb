@@ -8,5 +8,6 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def agreed?
+    true
   end
 end
