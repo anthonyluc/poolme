@@ -8,8 +8,7 @@ class Cview::CompaniesController < ApplicationController
 
   def update
     current_user.update_attributes(user_params[:users_attributes]['0'])
-    @company.update_attributes(company_params)
-    if @company.update(company_params)
+    if @company.update_attributes(company_params)
       redirect_to company_path(@company)
     else
       redirect_to edit_cview_company_path(@company)
