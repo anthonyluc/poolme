@@ -25,6 +25,7 @@ class Cview::ModelController < ApplicationController
     if @agreed
       @role.update_attributes(selected_user_id: @model.id)
     end
+    redirect_back(fallback_location: root_path)
   end
 
   private

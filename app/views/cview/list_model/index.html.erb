@@ -3,19 +3,21 @@
 
 <div id="discussion-module" style="text-align: right; padding-left: 200px;">
   <div class="messages" style="display: flex;">
-    <% @discussions.each do |d| %>
-      <%= link_to cview_discussion_role_model_path(discussion_id: d[:discussion][:id], role_id: params[:role_id], id: d[:user][:id]) do %>
-      <%= "#{ d[:user][:username] } " %>
-      <br/><br/><br/>
-      <div class="message">
-        <div class="message-name">
-          <%= "Last message by #{d[:last_message_user] }" %><br/>
-          <%= "#{d[:last_message][:created_at] }" %>
-        </div>
-        <div class="message-status">
-          <p class="status pending", style="padding-left: 80px">Pending</p>
-        </div>
-       <% end %>
+    <% if @discussions != [] %>
+      <% @discussions.each do |d| %>
+        <%= link_to cview_discussion_role_model_path(discussion_id: d[:discussion][:id], role_id: params[:role_id], id: d[:user][:id]) do %>
+        <%= "#{ d[:user][:username] } " %>
+        <br/><br/><br/>
+        <div class="message">
+          <div class="message-name">
+            <%= "Last message by #{d[:last_message_user] }" %><br/>
+            <%= "#{d[:last_message][:created_at] }" %>
+          </div>
+          <div class="message-status">
+            <p class="status pending", style="padding-left: 80px">Pending</p>
+          </div>
+         <% end %>
+      <% end %>
     <% end %>
     </div>
   </div>
