@@ -1,17 +1,5 @@
-<h2>Dashboard Project</h2>
-
-Discussion<br/>
-<% @messages.each do |m| %>
-  <%= "#{ m.user.username } : #{ m.content }" %> <br>
-<% end %>
-
-<% if @role.selected_user_id.blank? || @role.selected_user_id == current_user.id %>
-  <%= simple_form_for @message, url: project_dashboard_message_path(@project) do |m| %>
-    <%= m.input :content %>
-    <%= m.button :submit %>
-  <% end %>
-<% end %>
-<br>
+<center><br><h2>Discussion for <%= @discussion.name %></h2></center>
+<center>Status:
 <%=
   if @role.selected_user_id.blank?
     if @model.agreed
@@ -27,8 +15,74 @@ Discussion<br/>
     else
       "Damn, another model has been chosen..."
     end
-  end %><br/>
+  end %>
+</center>
+<div id='discussion-moduler'>
+<div class="containerrrr">
+<div class="containerrr">
 
-Project : <%= raw ap @project %>
-Role : <%= raw ap @role %>
-Messages : <%= raw ap @messages %>
+            <h3>Role: <%= @discussion.name %></h3>
+
+        <input type="radio" id='one' name='contorol' checked/>
+        <label for="one"><i class='icon-comments-alt'></i></label>
+        <input type="radio" id='two' name='contorol' />
+        <label for="two"><i class='icon-user'></i></label>
+        <input type="radio" id='three' name='contorol' />
+        <label for="three"><i class='icon-link'></i></label>
+
+<div class="all">
+        <div class="chat">
+            <div class="show-message">
+              <% @messages.each do |m| %>
+                <% if m.user != current_user %>
+                  <div class="friend">
+                    <% if @model.user.photos.exists? %>
+                    <%= image_tag 'defaultcie.jpg', width: 32, height: 32, crop: :fill %>
+                    <% else %>
+                    <%= image_tag avatar_path(@model.user), width: 32, height: 32, crop: :fill %>
+                    <% end %>
+                      <div class="message">
+                          <p><%= "#{ m.content }" %></br>
+                          </p>
+                      </div>
+                  </div>
+                <% else %>
+                  <div class="me">
+                    <% if current_user.photos.exists? %>
+                      <%= image_tag avatar_path(current_user), width: 32, height: 32, crop: :fill %>
+                    <% else %>
+                      <%= image_tag 'defaultcie.jpg', width: 32, height: 32, crop: :fill %>
+                    <% end %>
+                      <div class="message">
+                      <p><%= "#{ m.content }" %> <br>
+                      </p></div>
+                  </div>
+                <% end %>
+              <% end %>
+                <div class="badboy"></div>
+            </div>
+            <div class="type-text">
+              <% if @role.selected_user_id.blank? || @role.selected_user_id == current_user.id %>
+                <%= simple_form_for @message, url: project_dashboard_message_path(@project) do |m| %>
+                      <%= m.input :content, label:false, required: false %>
+                      <%= m.button :submit, "Send" %>
+                    <% end %>
+                    <% end %>
+            </div>
+        </div>
+
+        <div class="Description">
+            <p>
+            </p>
+        </div>
+
+        <div class="Link">
+            <div class="menu">
+            </div>
+        </div>
+
+        <div class="badboy"></div>
+    </div>
+</div>
+</div>
+</div>

@@ -36,7 +36,7 @@
                     <% if @model.photos[0] == nil %>
                     <%= image_tag 'defaultcie.jpg', width: 32, height: 32, crop: :fill %>
                     <% else %>
-                    <%= cl_image_tag @model.photos[0].path, width: 32, height: 32, crop: :fill %>
+                    <%= image_tag avatar_path(@model.user), width: 32, height: 32, crop: :fill %>
                     <% end %>
                       <div class="message">
                           <p><%= "#{ m.content }" %></br>
@@ -48,7 +48,7 @@
                     <% if current_user.photos[0] == nil %>
                       <%= image_tag 'defaultcie.jpg', width: 32, height: 32, crop: :fill %>
                     <% else %>
-                      <%= cl_image_tag current_user.photos[0].path, width: 32, height: 32, crop: :fill %>
+                      <%= image_tag avatar_path(current_user), width: 32, height: 32, crop: :fill %>
                     <% end %>
                       <div class="message">
                       <p><%= "#{ m.content }" %> <br>
@@ -81,3 +81,4 @@
 </div>
 </div>
 </div>
+

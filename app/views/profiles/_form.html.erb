@@ -9,6 +9,7 @@
 <%= f.input :hair_color, :collection => ["black", "brown", "blond", "red", "grey", "white", "other"], :as => :radio_buttons  %>
 <%= f.input :haircut, :collection => ["bald", "short", "mid-length", "long"], :as => :radio_buttons  %>
 <%= f.input :ethnicity, :collection => ["european", "african", "asian", "other"], :as => :radio_buttons  %>
+<%= f.input :height %>
 <%= f.input :corpulence, :collection => ["light-weight", "regular", "heavy-weight", "athletic"], :as => :radio_buttons  %>
 <br>
 <%= f.input :photos, as: :attachinary %>
