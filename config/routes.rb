@@ -25,9 +25,13 @@ Rails.application.routes.draw do
       resources :list_role, only: [:index]
       resources :roles, only: [:path] do
         resources :list_model, only: [:index]
-        resources :model, only: [:show]
       end
     end
+
+    resources :roles, only: [] do
+      resources :model, only: [:show]
+    end
+
     resources :companies, only: [:show, :edit, :update, :destroy]
     resources :projects do
       resources :roles do
