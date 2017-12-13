@@ -28,9 +28,11 @@
             <% if url.exclude?('cview')%>
               <%= image_tag avatar_path(current_user), class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
               <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+                <% unless current_user.company_id.blank? %>
                 <li>
                   <%= link_to "Agency", cview_projects_path, class: "navbar-wagon-item navbar-wagon-link" %>
                 </li>
+                <% end %>
             <% else %>
             <!-- for agency -->
               <%= image_tag avatar_path(current_user), class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
