@@ -7,18 +7,20 @@ class Cview::ListModelController < ApplicationController
   def index
     @models = Model.where(project: @project, role: @role)
     @discussions = []
-    @models.each { |m|
-      discussion = Discussion.where(project: @project, user: m.user)[0]
-      user = m.user.slice(:id, :username)
-      last_message = Message.where(discussion_id: discussion.discussion_id).select(:id, :user_id, :content, :created_at).last
-      last_message_user = last_message.user.username
-      @discussions << {
-        discussion: discussion,
-        user: user,
-        last_message_user: last_message_user,
-        last_message: last_message
+    if @models != nil
+      @models.each { |m|
+        discussion = Discussion.where(project: @project, user: m.user)[0]
+        user = m.user.slice(:id, :username)
+        last_message = Message.where(discussion_id: discussion.discussion_id).select(:id, :user_id, :content, :created_at).last
+        last_message_user = last_message.user.username
+        @discussions << {
+          discussion: discussion,
+          user: user,
+          last_message_user: last_message_user,
+          last_message: last_message
+        }
       }
-    }
+    end
   end
 
   private
