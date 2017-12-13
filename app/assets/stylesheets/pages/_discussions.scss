@@ -2,10 +2,6 @@
   background-color: white;
   font-weight: lighter;
   font-size: 20px;
-  height: 424px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   z-index: 3;
   h2 {
     padding: 0px;
@@ -20,10 +16,6 @@
 
 .manage-project {
   padding: 30px 0px;
-}
-
-.avatar-large {
-  width: 50%;
 }
 
 .banner {
@@ -182,15 +174,18 @@ figure.snip0057.hover:before {
   }
 }
 
+.message .avatar-large {
+  width: 100px;
+}
+
 .messages{
-  display: flex;
-  flex-direction: column;
-  height: 430px;
+  padding-left: 20px;
 }
 .message {
   display: flex;
   align-items: center;
   border-bottom: 1px solid rgba(220,224,244,0.4);
+  padding: 0 20px;
 }
 .message:last-child {
   border-bottom: none;
@@ -199,7 +194,8 @@ figure.snip0057.hover:before {
   flex-grow: 1;
 }
 .message-name {
-  padding-left: 10px;
+  flex-grow: 1;
+  padding-left: 100px;
   min-width: 800px;
 }
 .message-name h3 {
@@ -231,6 +227,7 @@ figure.snip0057.hover:before {
 }
 .message-status {
   font-size: 14px;
+  padding: 0 20px;
   font-weight: bold;
 }
 .status.accepted {
@@ -244,30 +241,23 @@ figure.snip0057.hover:before {
 }
 
 .avatar-large img {
-  width: 30%;
-  height: 30%;
+  // width: 30%;
+  height: 100px;
   margin-left: 20px;
   border-radius: 50%;
 }
 
-.avatar-large {
-  width: 300px;
-  height: 300px;
-  position: relative;
-  top: 100px;
-  left: 50px;
-}
 }
 
 #discussion-moduler{
-  @import url(https://fonts.googleapis.com/css?family=Gudea);
+@import url(https://fonts.googleapis.com/css?family=Gudea);
 
 body{
-    font-family: Raleway;
+    font-family: Gudea;
     background : url('http://i.cubeupload.com/UWyvD2.jpg')
-    no-repeat center center fixed;
-    -webkit-background-size: cover;
-    background-size: cover;
+  no-repeat center center fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 
 label i[class^='icon-'] , label i[class*='icon-']{
@@ -279,7 +269,16 @@ a:hover i[class^='icon-'] , a:hover i[class*='icon-']{
     color : #837D7D;
 }
 
+.containerrrr{
+  width: 100%;
+  background-image: asset-url('bp.jpg');
+  background-size: cover;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
 .containerrr{
+    top: 50px;
     width: 402px;
     margin: 40px auto;
     position: relative;
@@ -355,6 +354,9 @@ h3 {
 .followe span{
     display: block;
     text-align: center;
+    color: #232323;
+    margin-top: 50px;
+    margin-bottom: 0px;
 }
 
 span#number{

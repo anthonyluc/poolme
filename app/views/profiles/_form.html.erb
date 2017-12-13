@@ -5,19 +5,16 @@
 <%= f.input :description %>
 <%= f.input :city %>
 <%= f.input :country %>
-<%= f.input :newsletter %>
-<%= f.input :model %>
 <%= f.input :gender, :collection => ["male", "female", "other"], :as => :radio_buttons  %>
 <%= f.input :hair_color, :collection => ["black", "brown", "blond", "red", "grey", "white", "other"], :as => :radio_buttons  %>
 <%= f.input :haircut, :collection => ["bald", "short", "mid-length", "long"], :as => :radio_buttons  %>
 <%= f.input :ethnicity, :collection => ["european", "african", "asian", "other"], :as => :radio_buttons  %>
 <%= f.input :corpulence, :collection => ["light-weight", "regular", "heavy-weight", "athletic"], :as => :radio_buttons  %>
 <%= f.input :date_of_birth %>
-<%= f.input :phone_number_pro %>
-<%= f.input :email_pro %>
-<%= f.input :grade_company %>
-<%= f.input :description_pro %>
 <br>
 <%= f.input :photos, as: :attachinary %>
 <br>
-<%= f.button :submit %>
+<%= f.input :newsletter %>
+<%= f.input :model, label: "Disponible" %>
+<br>
+<%= f.button :submit, "Update profile" %>
