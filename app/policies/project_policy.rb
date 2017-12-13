@@ -6,4 +6,7 @@ class ProjectPolicy < ApplicationPolicy
       # Model.where(user: current_user)
     end
   end
+
+  def agreed?
+  end
 end
