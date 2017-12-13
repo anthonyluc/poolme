@@ -7,9 +7,9 @@ class Cview::ListModelController < ApplicationController
   def index
     @models = Model.where(project: @project, role: @role)
     @discussions = []
-    if @models != nil
-      @models.each { |m|
-        discussion = Discussion.where(project: @project, user: m.user)[0]
+    @models.each { |m|
+      discussion = Discussion.where(project: @project, user: m.user)[0]
+      if discussion != nil
         user = m.user.slice(:id, :username)
         last_message = Message.where(discussion_id: discussion.discussion_id).select(:id, :user_id, :content, :created_at).last
         last_message_user = last_message.user.username
@@ -19,8 +19,8 @@ class Cview::ListModelController < ApplicationController
           last_message_user: last_message_user,
           last_message: last_message
         }
-      }
-    end
+      end
+    }
   end
 
   private
