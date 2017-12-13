@@ -37,7 +37,6 @@
 @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
 figure.snip0057 {
   font-family: 'Raleway', Arial, sans-serif;
-  position: relative;
   float: left;
   overflow: hidden;
   margin: 10px 1%;
@@ -56,6 +55,7 @@ figure.snip0057 * {
   transition: all 0.35s ease-in-out;
 }
 figure.snip0057 .image {
+  width: 50%;
   overflow: hidden;
   z-index: 1;
   -webkit-transform: skewX(-15deg);
@@ -82,6 +82,10 @@ figure.snip0057:before {
 figure.snip0057 figcaption {
   padding: 0px 30px 20px 20px;
   position: absolute;
+  margin-bottom: 450px;
+  z-index: 1;
+  background-color: white;
+  opacity: 0.9;
   right: 0;
   bottom: 10px;
   width: 50%;

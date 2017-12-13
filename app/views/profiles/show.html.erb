@@ -23,8 +23,8 @@
         <br><br></br>
         <b>Description:</b><a> <%= @profile.description %></a>
         <br><br></br>
-        <b>Photos:</b><div class="pics" > <% @profile.photos.each do |photo| %>
-        <% cl_image_tag photo %>
+        <b>Photos:</b><div class="pics"> <% @profile.photos.each do |photo| %>
+        <%= cl_image_tag photo.path %>
         <% end %>
         </div>
       </div>
