@@ -1,10 +1,11 @@
-<% content_for(:navbar_class, "navbar-home") %>
+<% content_for(:navbar_class, "navbar-wagon") %>
 <div id='home'>
     <div class="homepage-hero-module">
         <div class="video-container">
             <div class="filter">
-              <h1>Want to get paid for modelling?</h1>
+                <h1>Turn yourself into an amateur model <br> and get paid.</h1>
             </div>
+
             <video autoplay loop class="">
                 <source src="<%= image_path('background.mp4') %>" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
                 <source src="<%= image_path('background.webm') %>" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
@@ -17,14 +18,14 @@
 <div class="btn-primary">
   <a><%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path %></a>
 </div>
-  <ul class="bmenu">
+<!--   <ul class="bmenu">
     <br>
     <li><a href="#concept" class="olivier">Concept</a></li>
     <br>
     <li><a href="#projects" class="olivier">Projects</a></li>
     <br>
     <li><a href="#pricing" class="olivier">Get Started</a></li>
-  </ul>
+  </ul> -->
   <div id='concept'><%= render 'concept' %></div>
   <%= render 'slider' %>
   <div id='projects'><%= render 'projects' %></div>
