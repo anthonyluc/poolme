@@ -44,7 +44,14 @@
       </p>
     </div>
     <div class="role-status">
-      <%= link_to 'Browse models', cview_project_role_path(project_id: @project.id, id: role.id), class: "role-controls"%>
+
+      <% if role.selected_user_id? %>
+        <%= link_to 'Messages', cview_role_model_path(role_id: role.id, id: role.selected_user_id), class: "role-controls"%>
+      <% else %>
+        <%= link_to 'Browse models', cview_project_role_path(project_id: @project.id, id: role.id), class: "role-controls"%>
+      <% end %>
+
+
       <%= link_to 'Edit role', edit_cview_project_role_path(project_id: @project.id, id: role.id), class: "role-controls"%> <br>
     </div>
 

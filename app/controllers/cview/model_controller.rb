@@ -46,7 +46,8 @@ class Cview::ModelController < ApplicationController
   end
 
   def set_project
-    @project = Project.find(params[:discussion_project_id])
+    # @project = Project.find(params[:discussion_project_id])
+    @project = Project.find(@role.project_id)
   end
 
   def set_discussion
