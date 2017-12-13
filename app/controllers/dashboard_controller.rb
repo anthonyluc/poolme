@@ -22,6 +22,7 @@ class DashboardController < ApplicationController
   def agreed
     @model.toggle(:agreed)
     @model.save
+    redirect_back(fallback_location: root_path)
   end
 
   private
