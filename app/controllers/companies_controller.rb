@@ -22,7 +22,7 @@ class CompaniesController < ApplicationController
     if @company.save
       current_user.company_id = @company.id
       if current_user.update_attributes(user_params)
-        redirect_to company_path(@company)
+        redirect_to cview_company_path(@company)
       else
         render :new
       end

@@ -8,8 +8,8 @@ class Cview::ModelsController < ApplicationController
   def index
     vals = {gender: @role.gender, ethnicity: @role.ethnicity, skin_color: @role.skin_color, hair_color: @role.hair_color, haircut: @role.haircut, height: @role.height, weight: @role.weight, corpulence: @role.corpulence}
     vals.reject!{ |key, value| value.nil? }
-    @users = User.search(vals, hitsPerPage: 2)
-    # @users = User.where(vals)
+    # @users = User.search(vals, hitsPerPage: 2)
+    @users = User.where(vals)
   end
 
   def create

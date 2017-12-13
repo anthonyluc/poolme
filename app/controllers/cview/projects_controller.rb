@@ -3,7 +3,7 @@ class Cview::ProjectsController < ApplicationController
   before_action :set_project, only: :show
 
   def index
-    @projects = Project.all
+    @projects = Project.where(company_id: current_user.company_id)
   end
 
   def show
