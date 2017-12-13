@@ -4,4 +4,8 @@ class ModelPolicy < ApplicationPolicy
       scope.where(user: user)
     end
   end
+
+  def agreed?
+    true
+  end
 end
