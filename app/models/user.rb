@@ -6,6 +6,9 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
   # after_create :send_welcome_email
 
+  geocoded_by :city
+  after_validation :geocode, if: :city_changed?
+
   has_many :companies
   has_many :messages
   has_many :discussions
