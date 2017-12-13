@@ -3,7 +3,7 @@
 <%=
   unless @role.selected_user_id.is_a?(Fixnum)
    if @agreed
-    simple_form_for @role, url: cview_discussion_role_model_accept_path(project_id: @project.id, role_id: @role.id, id: @model.id) do |f|
+    simple_form_for @role, url: cview_discussion_role_model_accept_path(discussion_project_id: @project.id, role_id: @role.id, id: @model.id) do |f|
       f.button :submit, value: "I want this model"
     end
    else
