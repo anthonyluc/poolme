@@ -14,20 +14,22 @@ class Cview::ModelsController < ApplicationController
 
   def create
     @model = Model.new(project: @project, role: @role, user: @user, checked: true)
-    @model.save
+    @model.save!
     @discussion_id = "#{@project.company.name} #{@project.name} #{@user.username}".gsub(/\W/,'-')
     @discussion = Discussion.new(name: "#{@project.name}", discussion_id: @discussion_id, user_id: current_user.id, project_id: @project.id)
-    @discussion.save
+    @discussion.save!
     @discussion = Discussion.new(name: "#{@project.name}", discussion_id: @discussion_id, user_id: @user.id, project_id: @project.id)
-    @discussion.save
+    @discussion.save!
     @message = Message.new(content: "Hi #{@user.username}, we want you !", discussion_id: @discussion_id, user_id: current_user.id)
-    @message.save
+    @message.save!
+    redirect_back(fallback_location: root_path)
   end
 
   def update
     @model = Model.where(role_id: params[:role_id], user_id: params[:id])[0]
     @model.toggle(:checked)
     @model.save
+    redirect_back(fallback_location: root_path)
     #redirect_to cview_project_role_path(project_id: @project, id: @role)
   end
 
