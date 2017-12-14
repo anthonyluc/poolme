@@ -1,0 +1,7 @@
+<%= f.input :gender, :collection => ["male", "female", "all"], :as => :check_boxes, include_hidden: false %>
+<%= f.input :ethnicity, :collection => ["european", "african", "asian", "all"], :as => :check_boxes, include_hidden: false %>
+<%= f.input :hair_color, :collection => ["black", "brown", "blond", "red", "grey", "white", "all"], :as => :check_boxes, include_hidden: false %>
+<%= f.input :haircut, :collection => ["bald", "short", "mid-length", "long", "all"], :as => :check_boxes, include_hidden: false %>
+<%= f.input :height %>
+<%= f.input :corpulence, :collection => ["light-weight", "regular", "heavy-weight", "athletic", "all"], :as => :check_boxes, include_hidden: false %>
+<%= f.button :submit %>

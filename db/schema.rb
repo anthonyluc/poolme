@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171212163357) do
+ActiveRecord::Schema.define(version: 20171213190107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,19 @@ ActiveRecord::Schema.define(version: 20171212163357) do
     t.index ["discussion_id"], name: "index_discussions_on_discussion_id"
     t.index ["project_id"], name: "index_discussions_on_project_id"
     t.index ["user_id"], name: "index_discussions_on_user_id"
+  end
+
+  create_table "filter_models", force: :cascade do |t|
+    t.string "gender", array: true
+    t.string "ethnicity", array: true
+    t.string "hair_color", array: true
+    t.string "haircut", array: true
+    t.integer "height", array: true
+    t.string "corpulence", array: true
+    t.bigint "role_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["role_id"], name: "index_filter_models_on_role_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -233,6 +246,7 @@ ActiveRecord::Schema.define(version: 20171212163357) do
 
   add_foreign_key "discussions", "projects"
   add_foreign_key "discussions", "users"
+  add_foreign_key "filter_models", "roles"
   add_foreign_key "messages", "users"
   add_foreign_key "models", "projects"
   add_foreign_key "models", "roles"
