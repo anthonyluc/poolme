@@ -1,25 +1,27 @@
-<center><h2>My Projects</h2></center>
-<div id="projects-module">
-    <div class="messages">
-  <% @projects.each do |p| %>
-  <div class="message">
-    <div class="avatar-large">
-      <% if p[:project].photos.exists? %>
-        <%= image_tag avatar_path(p[:project]) %>
-      <% else %>
-        <%= image_tag 'dpro.jpg' %>
-      <% end %>
-    </div>
-   <div class="message-name">
-    <%= link_to project_user_dashboard_path(p[:project].id) do %>
-    <h3><%= p[:project].name %>, <%= p[:project].country %></h3>
-    <p>Role : <%= p[:role].name %></p>
-  </div>
-  <div class="message-status">
-        <p class="status pending">Pending</p>
+<div class="container">
+  <center><h2>My Projects</h2></center>
+  <div id="projects-module">
+      <div class="messages">
+    <% @projects.each do |p| %>
+    <div class="message">
+      <div class="avatar-large">
+        <% if p[:project].photos.exists? %>
+          <%= image_tag avatar_path(p[:project]) %>
+        <% else %>
+          <%= image_tag 'dpro.jpg' %>
+        <% end %>
       </div>
+     <div class="message-name">
+      <%= link_to project_user_dashboard_path(p[:project].id) do %>
+      <h3><%= p[:project].name %>, <%= p[:project].country %></h3>
+      <p>Role : <%= p[:role].name %></p>
     </div>
+    <div class="message-status">
+          <p class="status pending">Pending</p>
+        </div>
+      </div>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+  </div>
 </div>
