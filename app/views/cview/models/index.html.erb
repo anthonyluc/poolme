@@ -1,12 +1,13 @@
 <div class="banner">
-  <h2>Connect with your favorite models</h2>
-  <div class="btn btn-2">See discussions</div>
-  <%= link_to "See discussions", cview_discussion_role_list_model_index_path(discussion_project_id: @project.id, role_id: @role.id)  %>
-</div>
+
 
 <div id="modelcards">
   <div class="card">
-    <center><h2>Models</h2></center>
+    <center>
+      <h2>Connect with your favorites models</h2>
+      <%= link_to "See discussions", cview_discussion_role_list_model_index_path(discussion_project_id: @project.id, role_id: @role.id), class: "butn butn-primary"  %>
+    </center>
+    <div class="div-space"> </div>
     <div class="content">
       <div class="col-xs-4 col-sm-4 col-md-12 col-lg-12">
         <% @users.each do |u| %>
@@ -32,7 +33,7 @@
                %>
             <% end %>
             </div>
-            <div class="detail"><h3><%= u.username %>, <%= u.gender %></h3></div>
+            <div class="detail"><h3><%= u.username %></h3></div>
           </div>
         <% end %>
       </div>
