@@ -189,7 +189,6 @@ figure.snip0057.hover:before {
 .messages{
   display: flex;
   flex-direction: column;
-  height: 430px;
 }
 .message {
   display: flex;
@@ -204,7 +203,7 @@ figure.snip0057.hover:before {
 }
 .message-name {
   padding-left: 10px;
-  min-width: 800px;
+  min-width: 750px;
 }
 .message-name h3 {
   font-size: 30px;
@@ -248,18 +247,29 @@ figure.snip0057.hover:before {
 }
 
 .avatar-large img {
-  width: 30%;
-  height: 30%;
-  margin-left: 20px;
-  border-radius: 50%;
-}
+    /* This image is 687 wide by 1024 tall, similar to your aspect ratio */
+    background-image: img;
 
+    /* make a square container */
+    width: 80px;
+    height: 80px;
+
+    /* fill the container, preserving aspect ratio, and cropping to fit */
+    background-size: cover;
+
+    /* center the image vertically and horizontally */
+    background-position: top center;
+
+    /* round the edges to a circle with border radius 1/2 container size */
+    border-radius: 50%;
+    margin-left: 30px;
+}
 .avatar-large {
   width: 300px;
-  height: 300px;
-  position: relative;
-  top: 100px;
-  left: 50px;
 }
 
+}
+
+.right-al {
+  margin-right: 0px;
 }

@@ -1,27 +1,30 @@
-<center><h2>My Projects</h2></center>
-<div class=avatar-large>
-  <%= link_to render('shared/add_button'), new_cview_project_path %>
-</div>
-  <div id="projects-module">
-    <div class="messages">
-    <% @projects.each do |p| %>
-    <div class="message">
-        <div class="avatar-large">
-        <% if p.photos? %>
-        <%= image_tag avatar_path(p) %>
-        <% else %>
-            <%= image_tag 'dpro.jpg' %>
-        <% end %>
+
+<div class="container">
+  <center><h2>My Projects</h2></center>
+  <div class="avatar-large right-al">
+    <%= link_to render('shared/add_button'), new_cview_project_path %>
+  </div>
+    <div id="projects-module">
+      <div class="messages">
+      <% @projects.each do |p| %>
+      <div class="message">
+          <div class="avatar-large">
+          <% if p.photos? %>
+          <%= image_tag avatar_path(p) %>
+          <% else %>
+              <%= image_tag 'dpro.jpg' %>
+          <% end %>
+        </div>
+        <div class="message-name">
+          <h3><%= link_to p.name, cview_project_path(p) %></h3>
+          <p>Starts at: <%= p.date_start.strftime("%d.%m.%y") %> | <%= p.description %> </p>
+
+        </div>
+        <div class="message-status">
+          <p class="status pending">Pending</p>
+        </div>
       </div>
-      <div class="message-name">
-        <h3><%= link_to p.name, cview_project_path(p) %>, <%= p.country %></h3>
-        <p>Starts at: <%= p.date_start %></p>
-        <p>Ends: <%= p.date_end %></p>
-      </div>
-      <div class="message-status">
-        <p class="status pending">Pending</p>
-      </div>
-    </div>
-    <% end %>
-</div>
+      <% end %>
+  </div>
+  </div>
 </div>
