@@ -2,8 +2,12 @@
 <div id='home'>
     <div class="homepage-hero-module">
         <div class="video-container">
-            <div class="filter">
+            <div class="tagline">
                 <h1>Turn yourself into an amateur model <br> and get paid.</h1>
+                <br>
+                <div class="btn-primary">
+                  <a><%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path %></a>
+                </div>
             </div>
 
             <video autoplay loop class="">
@@ -15,17 +19,6 @@
           </div>
       </div>
     </div>
-<div class="btn-primary">
-  <a><%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path %></a>
-</div>
-<!--   <ul class="bmenu">
-    <br>
-    <li><a href="#concept" class="olivier">Concept</a></li>
-    <br>
-    <li><a href="#projects" class="olivier">Projects</a></li>
-    <br>
-    <li><a href="#pricing" class="olivier">Get Started</a></li>
-  </ul> -->
   <div id='concept'><%= render 'concept' %></div>
   <%= render 'slider' %>
   <div id='projects'><%= render 'projects' %></div>

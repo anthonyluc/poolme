@@ -1,9 +1,10 @@
 #pricing-module {
+  padding-top: 100px;
+  padding-bottom: 90px;
   background-color: white;
   font-weight: lighter;
   text-align: center;
   font-size: 20px;
-  height: 600px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -14,7 +15,7 @@
   .container {
     margin-top: 0px;
   }
-}
+
 
 .button-container {
   padding: 55px 0px;
@@ -46,4 +47,9 @@
 
 .btn-2 {
   background-color: #B9DE50;
+}
+}
+
+.money-pic img {
+  width: 100%;
 }
