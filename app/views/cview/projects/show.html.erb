@@ -1,28 +1,43 @@
-<div id="project">
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0) 0%, rgba(0,36,61,0) 50%), url('https://picsum.photos/2000/450?image=513');">
+<%= @project.city %>
+
+<% @project.photos.each do |photo| %>
+  <%= cl_image_tag photo.path, width: 2000, height: 450, crop: :fill %>
+<% end %>
+
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0) 0%, rgba(0,36,61,0) 50%), url(
+
+    <% if @project.photos? %>
+      <% @project.photos.each do |photo| %>
+        <%= cl_image_tag photo.path, width: 2000, height: 450, crop: :fill %>
+        <% end %>
+      <% else %>
+         "https://picsum.photos/2000/450?image=513"
+      <% end %>
 </div>
+
+
 
 <div class="container">
 
   <div class="host">
-    Castor : CompanyName %>
+    Castor : <%= @project.company.name %>
   </div>
 
   <div class="col xs-12">
-    <h2>ProjectName</h2>
+    <h2> <%= @project.name %> </h2>
   </div>
 
   <div class="basic-infos">
     <table>
       <tr>
-        <td> <i class="fa fa-calendar-o" aria-hidden="true"></i> Starts on StartDate </td>
-        <td> | Ends on EndDate </td>
+        <td> <i class="fa fa-calendar-o" aria-hidden="true"></i> Starts on <%= @project.date_start.strftime("%d.%m.%y") %> </td>
+        <td> | Ends on <%= @project.date_end.strftime("%d.%m.%y") %> </td>
       </tr>
     </table>
   </div>
-
+  <div class="div-space"></div>
   <div class="col xs-12 project-desc">
-    This is a wonderful description. This is a wonderful description. This is a wonderful description. This is a wonderful description. This is a wonderful description. This is a wonderful description. This is a wonderful description. This is a wonderful description. This is a wonderful description. This is a wonderful description.
+    <%= @project.description %>
   </div>
 
 
@@ -57,6 +72,7 @@
         </div>
       </div>
     <% end %>
+  </div>
 
 
 
@@ -89,13 +105,15 @@
     });
   </script>
 <br></br>
+<div class="container">
 <!-- something with a if current_user == @project.user -->
   <div class="manage-project">
     <span class="butn butn-primary"> <%= link_to 'Edit', edit_cview_project_path %></span>
     <span class="butn butn-primary"><%= link_to 'Back', cview_projects_path %></span>
   </div>
 </div>
-
+</div>
+<div class="div-space"></div>
 
 
 <%= content_for :after_js do %>
