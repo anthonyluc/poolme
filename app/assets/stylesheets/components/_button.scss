@@ -5,19 +5,31 @@
   transition: 0.5s;
   color: white;
  /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
-  box-shadow: 0 0 20px #eee;
   border-radius: 50px;
   font-weight: normal;
+  font-family: Open Sans;
 }
 
 .butn:hover {
   opacity: 80%;
+  text-decoration: none;
+  color: white
 }
 
 .butn-primary {
   background-color: #B9DE50;
 }
+
+.butn-primary:hover {
+  background-color: #A8CD40;
+}
+
 .butn-primary > a {
+  text-decoration: none;
+  color: white
+}
+
+.butn-primary > a:hover {
   text-decoration: none;
   color: white
 }

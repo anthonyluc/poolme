@@ -3,6 +3,9 @@
     position: relative;
     text-align: center;
     border: none;
+    font-size: 20px;
+    font-weight: lighter;
+    font-family: Open Sans;
   }
 
   @import url(https://zavoloklom.github.io/material-design-iconic-font/css/docs.md-iconic-font.min.css);
@@ -25,12 +28,12 @@ body {
   position: relative;
   margin: 50px auto;
   border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 2px 3px rgba(100, 100, 100, 0.08), 0 2px 3px rgba(100, 100, 100, 0.08);
   transition: all 0.2s ease-in-out;
 }
 
 .card:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 2px 3px rgba(100, 100, 100, 0.15), 0 2px 3px rgba(100, 100, 100, 0.15);
 }
 
 .fab {
@@ -43,7 +46,7 @@ body {
   background-color: #ffd54f;
   border-radius: 50%;
   transform: scale(0);
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.22), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 2px 3px rgba(100, 100, 100, 0.08), 0 2px 3px rgba(100, 100, 100, 0.08);
   transition: margin-top 0.6s 0.0s ease-in-out, margin-left 0.6s 0.1s ease-in-out, transform 0.6s 0.0s ease-in-out, visibility 0.6s ease-in-out;
 }
 
@@ -53,7 +56,7 @@ body {
   transform: scale(12);
   visibility: visible;
   transition: margin-top 0.5s ease-in-out, margin-left 0.6s ease-in-out, transform 0.4s 0.3s ease-in-out, visibility 0.4s ease-in-out;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 2px 3px rgba(100, 100, 100, 0.15), 0 2px 3px rgba(100, 100, 100, 0.15);
 }
 
 .avatar {
@@ -69,7 +72,7 @@ body {
   position: absolute;
   transition: 0.6s ease-in-out;
   cursor: pointer;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 2px 3px rgba(100, 100, 100, 0.08), 0 2px 3px rgba(100, 100, 100, 0.08);
 }
 
 .active .avatar {
@@ -77,11 +80,11 @@ body {
   margin-top: 50px;
   margin-left: -30px;
   transition: 0.6s ease-in-out;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 2px 3px rgba(100, 100, 100, 0.08), 0 2px 3px rgba(100, 100, 100, 0.08);
 }
 
 .active .avatar:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 2px 3px rgba(100, 100, 100, 0.15), 0 2px 3px rgba(100, 100, 100, 0.15);
 }
 
 .fabs {
@@ -128,12 +131,12 @@ body {
   margin: 10px auto 0;
   background: #eceff1;
   border-radius: 3px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 2px 3px rgba(100, 100, 100, 0.08), 0 2px 3px rgba(100, 100, 100, 0.08);
   transition: all 0.2s ease-in-out;
 }
 
 .post:hover{
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 2px 3px rgba(100, 100, 100, 0.15), 0 2px 3px rgba(100, 100, 100, 0.15);
 }
 
 .counter {
