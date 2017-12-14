@@ -1,5 +1,12 @@
+
+<div id='discussion-moduler'>
+<div class="container">
 <center><br><h2> Discussion with <%= @model.username %></h2></center>
-<center>Status:
+            <h3>Role: <%= @discussion.name %></h3>
+
+        <div class="chat">
+          <div class=chat-stat>
+            <center>Status:
 <%=
   unless @role.selected_user_id.is_a?(Fixnum)
    if @agreed
@@ -7,28 +14,14 @@
       f.button :submit, value: "I want this model"
     end
    else
-    "Waiting for agreed"
+    "Waiting for agreement"
    end
   else
     "Done"
   end
  %>
 </center>
-<div id='discussion-moduler'>
-<div class="containerrrr">
-<div class="containerrr">
-
-            <h3>Role: <%= @discussion.name %></h3>
-
-        <input type="radio" id='one' name='contorol' checked/>
-        <label for="one"><i class='icon-comments-alt'></i></label>
-        <input type="radio" id='two' name='contorol' />
-        <label for="two"><i class='icon-user'></i></label>
-        <input type="radio" id='three' name='contorol' />
-        <label for="three"><i class='icon-link'></i></label>
-
-<div class="all">
-        <div class="chat">
+          </div>
             <div class="show-message">
               <% @messages.each do |m| %>
                 <% if m.user == @model %>
@@ -60,25 +53,13 @@
             </div>
             <div class="type-text">
                 <%= simple_form_for @message, url: cview_discussion_role_model_create_path(@project, @role, params[:id]) do |m| %>
-                      <%= m.input :content, label:false, required: false %>
-                      <%= m.button :submit, "Send" %>
+                      <%= m.input :content, label:false, required: false, class: "sendbox" %>
+                      <%= m.button :submit, "Send", class: "send-butn" %>
                     <% end %>
-            </div>
-        </div>
-
-        <div class="Description">
-            <p>
-            </p>
-        </div>
-
-        <div class="Link">
-            <div class="menu">
             </div>
         </div>
 
         <div class="badboy"></div>
     </div>
-</div>
-</div>
 </div>
 
