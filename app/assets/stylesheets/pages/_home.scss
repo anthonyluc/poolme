@@ -39,31 +39,36 @@
 
 
   .video-container video {
-      position: absolute;
       top: 0;
   }
   .video-container video.fillWidth {
       width: 100%;
   }
 
-  h1 {
-    text-align: center;
-    font-family: Raleway;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
-    font-size: 60px;
-    color: #F2F2F2;
-    text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15);
+  .tagline {
+
     position: absolute;
     width: 100%;
     padding-top: 200px;
+
+    h1 {
+      text-align: center;
+      font-family: Raleway;
+      font-style: normal;
+      font-weight: 800;
+      line-height: normal;
+      font-size: 60px;
+      color: #F2F2F2;
+      text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15);
+    }
+
   }
 
   a .olivier {
     font-size: 30px;
     padding: 0px;
     margin: 2px;
+
   }
 
   .bmenu{
@@ -133,9 +138,14 @@
   }
 
   .btn-primary {
-    position: absolute;
+    bottom: 120px;
+    margin: 0px auto;
+    width: 150px;
+    border-radius: 50px;
+    margin-bottom: 100px;
+    box-shadow: 1px 1px 1px #565656;
     padding: 30px 18px 30px 18px;
-    width: 100%;
+    text-align: center;
     font-family: Raleway;
     font-style: normal;
     line-height: normal;
