@@ -9,10 +9,12 @@
     </center>
     <div class="div-space"> </div>
     <div class="content">
-      <%= simple_form_for @filter_models, url: cview_project_roles_update_filter_path(project: @project, role_id:@role.id), method: :patch do |f| %>
-       <% render "cview/models/filter_models_form", f: f %>
-      <% end %>
 
+      <div id="filter_models">
+        <%= simple_form_for @filter_models, url: cview_project_roles_update_filter_path(project: @project, role_id:@role.id), method: :patch do |f| %>
+         <% render "cview/models/filter_models_form", f: f %>
+        <% end %>
+      </div>
 
       <div class="col-xs-4 col-sm-4 col-md-12 col-lg-12">
         <% @users.each do |u| %>
