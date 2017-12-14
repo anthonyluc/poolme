@@ -194,22 +194,26 @@ figure.snip0057.hover:before {
 }
 
 .messages{
-  padding-left: 20px;
+  padding: 10px;
+  font-size: smaller;
 }
-.message {
+.message a {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(220,224,244,0.4);
   padding: 0 20px;
-  a {
   text-decoration: none;
+  .username {
+    width: 100px;
+    word-wrap: break-word;
+    text-align: center;
+  }
+  .avatar-large{
+    margin: 5px 30px;
+  }
 }
 
-a:hover {
-  text-decoration: none;
-}
-
-}
 .message:last-child {
   border-bottom: none;
 }
@@ -218,8 +222,6 @@ a:hover {
 }
 .message-name {
   flex-grow: 1;
-  padding-left: 100px;
-  min-width: 800px;
 }
 .message-name h3 {
   font-size: 30px;
@@ -264,9 +266,7 @@ a:hover {
 }
 
 .avatar-large img {
-  // width: 30%;
   height: 100px;
-  margin-left: 20px;
   border-radius: 50%;
 }
 
