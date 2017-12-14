@@ -29,7 +29,7 @@
                     <% if @model.photos[0] == nil %>
                     <%= image_tag 'defaultcie.jpg', width: 32, height: 32, crop: :fill %>
                     <% else %>
-                    <%= image_tag avatar_path(@model.user), width: 32, height: 32, crop: :fill %>
+                    <%= image_tag avatar_path(@model), width: 32, height: 32, crop: :fill %>
                     <% end %>
                       <div class="message">
                           <p><%= "#{ m.content }" %></br>
