@@ -5,22 +5,12 @@
 <%= f.input :description %>
 <%= f.input :city %>
 <%= f.input :country %>
-<div class="flex">
-<%= f.input :gender, :collection => ["male", "female", "other"], :as => :radio_buttons  %>
-</div>
-<div class="flex">
-<%= f.input :hair_color, :collection => ["black", "brown", "blond", "red", "grey", "white", "other"], :as => :radio_buttons  %>
-</div>
-<div class="flex">
-<%= f.input :haircut, :collection => ["bald", "short", "mid-length", "long"], :as => :radio_buttons  %>
-</div>
-<div class="flex">
-<%= f.input :ethnicity, :collection => ["european", "african", "asian", "other"], :as => :radio_buttons  %>
-</div>
+<%= f.input :gender, :item_wrapper_class => 'radio-inline', :collection => ["male", "female", "other"], :as => :radio_buttons  %>
+<%= f.input :hair_color, :item_wrapper_class => 'radio-inline', :collection => ["black", "brown", "blond", "red", "grey", "white", "other"], :as => :radio_buttons  %>
+<%= f.input :haircut, :item_wrapper_class => 'radio-inline', :collection => ["bald", "short", "mid-length", "long"], :as => :radio_buttons  %>
+<%= f.input :ethnicity, :item_wrapper_class => 'radio-inline', :collection => ["european", "african", "asian", "other"], :as => :radio_buttons  %>
 <%= f.input :height %>
-<div class="flex">
-<%= f.input :corpulence, :collection => ["light-weight", "regular", "heavy-weight", "athletic"], :as => :radio_buttons  %>
-</div>
+<%= f.input :corpulence, :item_wrapper_class => 'radio-inline', :collection => ["light-weight", "regular", "heavy-weight", "athletic"], :as => :radio_buttons  %>
 <br>
 <%= f.input :photos, as: :attachinary %>
 <br>

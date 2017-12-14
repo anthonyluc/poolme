@@ -119,8 +119,17 @@
 }
 
   .flex{
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
   }
 
+  .radio_buttons label {
+  /* width: 300px; */
+  flex-basis: 100px;
+  margin-bottom: 0;
+  }
+
+  .radio-inline{
+  margin: 0px;
+  }
 
