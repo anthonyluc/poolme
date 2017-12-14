@@ -175,7 +175,22 @@ figure.snip0057.hover:before {
 }
 
 .message .avatar-large {
-  width: 100px;
+    /* This image is 687 wide by 1024 tall, similar to your aspect ratio */
+    background-image: img;
+
+    /* make a square container */
+    width: 80px;
+    height: 80px;
+
+    /* fill the container, preserving aspect ratio, and cropping to fit */
+    background-size: cover;
+
+    /* center the image vertically and horizontally */
+    background-position: top center;
+
+    /* round the edges to a circle with border radius 1/2 container size */
+    border-radius: 50%;
+    margin-left: 30px;
 }
 
 .messages{
@@ -186,6 +201,14 @@ figure.snip0057.hover:before {
   align-items: center;
   border-bottom: 1px solid rgba(220,224,244,0.4);
   padding: 0 20px;
+  a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 }
 .message:last-child {
   border-bottom: none;
@@ -653,3 +676,4 @@ ul{
     opacity: 1;
 }
 }
+

@@ -1,22 +1,22 @@
+<div class="container">
 <center><br><h2>Discussions</h2></center>
-<center><h3> <%= @discussions[0][:discussion][:name] %></h3></center>
-
-<div id="discussion-module" style="text-align: right; padding-left: 200px;">
-  <div class="messages" style="display: flex;">
-      <% @discussions.each do |d| %>
-        <%= link_to cview_role_model_path(role_id: params[:role_id], id: d[:user][:id]) do %>
-        <%= "#{ d[:user][:username] } " %>
-        <br/><br/><br/>
-        <div class="message">
-          <div class="message-name">
-            <%= "Last message by #{d[:last_message_user] }" %><br/>
-            <%= "#{d[:last_message][:created_at] }" %>
-          </div>
-          <div class="message-status">
-            <p class="status pending", style="padding-left: 80px">Pending</p>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
+<div id="discussion-module">
+  <div class="messages">
+    <% @discussions.each do |d| %>
+      <div class="message">
+          <%= link_to cview_role_model_path(role_id: params[:role_id], id: d[:user][:id]) do %>
+          <%= "#{ d[:user][:username] } " %>
+        <%= image_tag avatar_path(d[:user]), class: "avatar-large" %>
+        <div class="message-name">
+          <%= "Last message by #{d[:last_message_user] }" %><br/>
+          <%= "#{d[:last_message][:created_at] }" %>
+        </div>
+        <div class="message-status">
+          <p class="status pending", style="padding-left: 80px">Pending</p>
+        </div>
+      </div>
+    <% end %>
+    <% end %>
   </div>
+</div>
 </div>
