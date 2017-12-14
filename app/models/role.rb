@@ -1,6 +1,7 @@
 class Role < ApplicationRecord
   belongs_to :project
   has_many :models
+  has_many :filter_models
   has_many :users, through: :models
   has_many :role_skills, dependent: :destroy
   has_many :skills, through: :role_skills

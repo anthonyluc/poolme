@@ -6,7 +6,8 @@ class Cview::ModelsController < ApplicationController
   before_action :set_project, only: [:index, :create, :update]
 
   def index
-    vals = {gender: @role.gender, ethnicity: @role.ethnicity, skin_color: @role.skin_color, hair_color: @role.hair_color, haircut: @role.haircut, height: @role.height, weight: @role.weight, corpulence: @role.corpulence}
+    vals = {gender: @role.gender, ethnicity: @role.ethnicity, hair_color: @role.hair_color, haircut: @role.haircut, height: @role.height, weight: @role.weight, corpulence: @role.corpulence}
+    #vals.reject!{ |key, value| value.nil? }
     vals.reject!{ |key, value| value.nil? }
     # @users = User.search(vals, hitsPerPage: 2)
     @users = User.where(vals)

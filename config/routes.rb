@@ -34,6 +34,7 @@ Rails.application.routes.draw do
 
     resources :companies, only: [:show, :edit, :update, :destroy]
     resources :projects do
+      patch 'roles/:role_id/update_filter' => 'roles#update_filter', as: :roles_update_filter
       resources :roles do
         resources :models, except: [:index, :destroy]
       end
