@@ -105,3 +105,61 @@
 
 
 
+#new_role{
+  font-family: Open Sans;
+  font-size: smaller;
+
+  .fa-user-circle-o{
+    display: block;
+    width: 100%;
+    font-size: 225px;
+    text-align: center;
+    margin: 100px 0px;
+  }
+
+  input.btn.btn-default{
+    border-radius: 20px;
+  }
+
+  .control-label{
+    min-width: 10%;
+  }
+
+  .radio-inline:checked {
+    color: white;
+    background-color: green;
+  }
+  .form-group{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+
+    .radio-inline{
+      padding-left: 0px;
+      height: 30px;
+      background: #b7b7b7;
+      border-radius: 5px;
+      opacity: .4;
+      text-align: center;
+      margin: 10px;
+      &:hover {
+        opacity: 1;
+        cursor: pointer;
+      }
+      &.active {
+      background: $brand-primary;
+      color: white;
+      opacity: 1;
+      }
+      label{
+        padding: 2px 25px;
+        input{
+          visibility:hidden;
+          margin: 5px 10px;
+        }
+      }
+    }
+  }
+}

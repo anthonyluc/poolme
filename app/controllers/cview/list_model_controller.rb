@@ -13,11 +13,13 @@ class Cview::ListModelController < ApplicationController
         user = m.user
         last_message = Message.where(discussion_id: discussion.discussion_id).select(:id, :user_id, :content, :created_at).last
         last_message_user = last_message.user.username
+        response = last_message.user.username == current_user.username ? false : true
         @discussions << {
           discussion: discussion,
           user: user,
           last_message_user: last_message_user,
-          last_message: last_message
+          last_message: last_message,
+          response: response
         }
       end
     }
