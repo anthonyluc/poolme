@@ -27,16 +27,18 @@
               <% end %>
             </div>
             <div class="counter">
-              <%=
-                # if @models.include?(u.id)
-                if @models.exists?(user_id: u.id, checked: :true)
-                  link_to render('shared/check_button'),cview_project_role_model_path(project_id: @project.id, role_id: @role.id, id: u.id), method: :patch
-                elsif @models.exists?(user_id: u.id, checked: :false)
-                  link_to render('shared/add_button'), cview_project_role_model_path(project_id: @project.id, role_id: @role.id, id: u.id), method: :patch
-                else
-                  link_to render('shared/add_button'), cview_project_role_models_path(project_id: @project.id, role_id: @role.id, id: u.id), method: :post
-                end
-               %>
+              <%= raw "<div id='u_#{u.id}'>" %>
+                <%=
+                  # if @models.include?(u.id)
+                  if @models.exists?(user_id: u.id, checked: :true)
+                    link_to render('shared/check_button'),cview_project_role_model_path(project_id: @project.id, role_id: @role.id, id: u.id), method: :patch
+                  elsif @models.exists?(user_id: u.id, checked: :false)
+                    link_to render('shared/add_button'), cview_project_role_model_path(project_id: @project.id, role_id: @role.id, id: u.id), method: :patch
+                  else
+                    link_to render('shared/add_button'), cview_project_role_models_path(project_id: @project.id, role_id: @role.id, id: u.id), method: :post
+                  end
+                 %>
+                 <%= raw "</div>" %>
             <% end %>
             </div>
             <div class="detail"><h3><%= u.username %></h3></div>
