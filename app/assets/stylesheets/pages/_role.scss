@@ -134,16 +134,17 @@
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
-    margin: 20px 0;
+    margin: 13px 0;
 
     .radio-inline{
       padding-left: 0px;
-      height: 30px;
-      background: #b7b7b7;
+      height: 28px;
+      background: #cccccc;
+      padding-top: 3px;
       border-radius: 5px;
       opacity: .4;
       text-align: center;
-      margin: 10px;
+      margin: 4px;
       &:hover {
         opacity: 1;
         cursor: pointer;
