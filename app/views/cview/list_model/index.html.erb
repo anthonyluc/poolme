@@ -3,19 +3,21 @@
 <div id="discussion-module">
   <div class="messages">
     <% @discussions.each do |d| %>
+    <%= raw '<div class="response">' if d[:response] %>
       <div class="message">
           <%= link_to cview_role_model_path(role_id: params[:role_id], id: d[:user][:id]) do %>
-          <div class='username'><%= "#{ d[:user][:username] } " %></div>
-        <%= image_tag avatar_path(d[:user]), class: "avatar-large" %>
-        <div class="message-name">
-          <%= "Last message by #{d[:last_message_user] }" %><br/>
-          <%= "#{d[:last_message][:created_at].strftime("%d.%m.%y") }" %>
+            <div class='username'><%= "#{ d[:user][:username] } " %></div>
+          <%= image_tag avatar_path(d[:user]), class: "avatar-large" %>
+          <div class="message-name">
+            <%= "Last message by #{d[:last_message_user] }" %><br/>
+            <%= "#{d[:last_message][:created_at].strftime("%d.%m.%y") }" %>
+          </div>
+          <div class="message-status">
+            <p class="status pending", style="padding-left: 80px">Pending</p>
+          </div>
         </div>
-        <div class="message-status">
-          <p class="status pending", style="padding-left: 80px">Pending</p>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
+      <%= raw '</div>' if d[:response] %>
     <% end %>
   </div>
 </div>

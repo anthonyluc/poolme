@@ -13,8 +13,8 @@
   <%= simple_form_for @project, url: cview_projects_path, method: :post do |p| %>
     <%= p.input :name, required: false %>
     <%= p.input :description, required: false %>
-    <%= p.input :date_start, required: false %>
-    <%= p.input :date_end, required: false %>
+    <%= p.input :date_start, required: false, as: :string, input_html: { class: 'datepicker' } %>
+    <%= p.input :date_end, required: false, as: :string, input_html: { class: 'datepicker' } %>
     <%= p.input :city %>
     <%= p.input :country %>
     <%= p.input :photos, as: :attachinary %>

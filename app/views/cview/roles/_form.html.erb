@@ -1,8 +1,11 @@
 <%= f.input :name, required: false %>
 <%= f.input :description, required: false %>
-
-<%= f.input :date_start, required: false %>
-<%= f.input :date_end, required: false %>
+<!-- <label class="control-label" for="date_start">Date start</label>
+<input class="form-control" id="date_start" name="date_start" placeholder="" type="text" data-date-format='dd MM, yyyy' />
+<label class="control-label" for="date_end">Date end</label>
+<input class="form-control" id="date_end" name="date_end" placeholder="" type="text" data-date-format='dd MM, yyyy' /> -->
+<%= f.input :date_start, required: false, as: :string, input_html: { class: 'datepicker' } %>
+<%= f.input :date_end, required: false, as: :string, input_html: { class: 'datepicker' } %>
 <%= f.input :income, required: false %>
 <%= f.input :hours, required: false %>
 
@@ -10,7 +13,6 @@
 <%= f.input :ethnicity, :item_wrapper_class => 'radio-inline', :collection => ["european", "african", "asian", "other"], :as => :radio_buttons %>
 <%= f.input :hair_color, :item_wrapper_class => 'radio-inline', :collection => ["black", "brown", "blond", "red", "grey", "white", "other"], :as => :radio_buttons %>
 <%= f.input :haircut, :item_wrapper_class => 'radio-inline', :collection => ["bald", "short", "mid-length", "long"], :as => :radio_buttons %>
-<%= f.input :height %>
 <%= f.input :corpulence, :item_wrapper_class => 'radio-inline', :collection => ["light-weight", "regular", "heavy-weight", "athletic"], :as => :radio_buttons %>
 <br>
 <center><%= f.button :submit %></center>
