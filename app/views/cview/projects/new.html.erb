@@ -1,26 +1,28 @@
-<div class="back_login" style="bottom: 0px">
-<%=
-# image_tag 'cardbackground.jpg'
-%>
-</div>
-<div class="containerr" style="width: 100%; margin-top: 50px">
-<div class="col-sm-12 col-md-6">
-<h1>Start a new project!</h1>
-</div>
-<div class="col-sm-12 col-md-6">
-<div class="formm">
+<div id="project_new">
+  <div class="back_login" style="bottom: 0px">
+  <%=
+  # image_tag 'cardbackground.jpg'
+  %>
+  </div>
+  <div class="containerr" style="width: 100%; margin-top: 50px">
+  <div class="col-sm-12 col-md-6">
+  <h1>Launch a new project!</h1>
+  <i class="fa fa-rocket" aria-hidden="true"></i>
+  </div>
+  <div class="col-sm-12 col-md-6">
+  <div class="formm">
 
-  <%= simple_form_for @project, url: cview_projects_path, method: :post do |p| %>
-    <%= p.input :name, required: false %>
-    <%= p.input :description, required: false %>
-    <%= p.input :date_start, required: false, as: :string, input_html: { class: 'datepicker' } %>
-    <%= p.input :date_end, required: false, as: :string, input_html: { class: 'datepicker' } %>
-    <%= p.input :city %>
-    <%= p.input :country %>
-    <%= p.input :photos, as: :attachinary %>
-    <%= p.button :submit %>
-  <% end %>
-  <br><br></br>
+    <%= simple_form_for @project, url: cview_projects_path, method: :post do |p| %>
+      <%= p.input :name, required: false %>
+      <%= p.input :description, required: false %>
+      <%= p.input :date_start, required: false, as: :string, input_html: { class: 'datepicker' } %>
+      <%= p.input :date_end, required: false, as: :string, input_html: { class: 'datepicker' } %>
+      <%= p.input :city %>
+      <%= p.input :country %>
+      <%= p.input :photos, as: :attachinary %>
+      <%= p.button :submit %>
+    <% end %>
+    <br><br></br>
+  </div>
+  </div>
 </div>
-</div>
-
